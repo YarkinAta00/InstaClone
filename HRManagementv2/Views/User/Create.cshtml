@@ -1,0 +1,30 @@
+﻿@model User
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Kullanıcı Oluştur</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="FirstName">Adınız</label>
+            <input asp-for="FirstName" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="LastName">Soyadınız</label>
+            <input asp-for="LastName" class="form-control" />
+        </div> 
+        <div class="mb-3">
+            <label asp-for="Email">Eposta Adresiniz</label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password">Şifreniz</label>
+            <input type="password" asp-for="Password" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Onayla</button>
+        <a asp-controller="User" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Geri Dön
+        </a>
+    </div>
+</form>

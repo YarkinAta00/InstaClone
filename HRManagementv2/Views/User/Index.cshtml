@@ -1,0 +1,46 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-info">Kullanıcı Bilgileri</h2>
+        </div>       
+        <div class="col-6 text-end">
+            <a asp-controller="User" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp Kullanıcı Oluştur</a>
+        </div>
+    </div>
+</div>
+<br />
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>E-posta Adresi</th>
+            <th>Hesap Durumu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr> 
+
+                <td>@obj.UserId</td>
+                <td>@obj.FirstName</td>
+                <td>@obj.LastName</td>
+                <td>@obj.Email</td>
+                @if (@obj.AccountStatus == true)
+                {
+                    <td>Aktif</td>
+                }
+                else{ <td>Pasif</td> }
+            </tr>
+        }
+    </tbody>
+</table>
