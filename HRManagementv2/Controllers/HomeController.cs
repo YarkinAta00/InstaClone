@@ -1,4 +1,6 @@
-﻿using HRManagementv2.Models;
+﻿using HRManagementv2.Data;
+using HRManagementv2.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -12,10 +14,34 @@ namespace HRManagementv2.Controllers
         {
             _logger = logger;
         }
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(User p)
+        {
+            ApplicationDbContext c = new ApplicationDbContext();
+            var userinfo=c.Users.FirstOrDefault(x=>x.Email == p.Email && x.Password == p.Password);
+            if (userinfo != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            return RedirectToAction("Login");
+        }
 
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Auth()
+        {
+            return View();
+
         }
 
         public IActionResult Privacy()

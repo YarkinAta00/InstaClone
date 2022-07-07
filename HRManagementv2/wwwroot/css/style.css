@@ -1,0 +1,116 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+body {
+    display: grid;
+    background-image: url("https://elearningindustry.com/wp-content/uploads/2016/05/perspectives-human-resource-management-recruiting-companions.jpeg");
+}
+
+.loginbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 370px;
+    margin: auto 0;
+    border-radius: 10px 10px 10px 10px;
+    height: 450px;
+    padding: 80px 40px;
+    box-sizing: border-box;
+    background: rgba(255,255,255);
+}
+
+.user {
+    width: 100px;
+    overflow: auto;
+    height: 100px;
+    top: calc(-100px/2);
+    left: 140px;
+    position: absolute;
+}
+
+.text-info-begin {
+    font-size: 28px;
+    position: fixed;
+    top: 65px;
+    right: 104px;
+    text-align: center;
+    color: rgba(0,0,0);
+}
+
+.text-info {
+    color: black !important;
+}
+
+.custom-control-label {
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000000;
+    position: absolute;
+    top: 268px;
+    right: 188px;
+}
+
+.text-forgotpassword {
+    position: absolute;
+    top: 370px;
+    right: 120px;
+}
+
+.text-createaccount {
+    position: absolute;
+    top: 390px;
+    right: 120px;
+}
+
+#text-forgotpass {
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000000;
+}
+
+#text-createacc {
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000000;
+}
+
+#customCheck {
+    position: absolute;
+    top: 275px;
+    right: 315px;
+}
+
+#loginbutton {
+    width: 200px;
+    border: none;
+    outline: none;
+    height: 30px;
+    text-align: center;
+    line-height: 15px;
+    font-size: 19px;
+    color: rgba(255,255,255);
+    border-radius: 6px;
+    border: 1px solid dodgerBlue;
+    position: fixed;
+    top: 315px;
+    right: 90px;
+}
+
+@media only screen and (max-width: 800px) {
+    #exampleInputEmail {
+        width: 100%;
+    }
+
+    #exampleInputPassword {
+        width: 100%;
+    }
+}

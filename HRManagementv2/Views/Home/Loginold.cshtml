@@ -1,0 +1,257 @@
+﻿@model HRManagementv2.Models.User
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+<link rel="stylesheet" href="~/css/style.css" />
+<link rel="stylesheet" href="~/css/blueTheme.css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Giriş Sayfası</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+ </head>
+
+<body class="bg-gradient-primary">
+    <section class="main-content-w3layouts-agileits">
+        <div class="container">
+            <div class="loginbox">
+                <img src="~/lib/media/monM.png" class="user"/>
+                <div class="col-xl-10 col-lg-12 col-md-9">
+                @using (Html.BeginForm("Index","Home",FormMethod.Post))
+                {
+                    <form class="user">
+                        <h2 class="text-info-begin">Hoşgeldiniz!</h2><br>
+                                        <div class="col-sm-12">
+                                            <label for="email" class="text-info">E-posta Adresi</label>
+                                            <input type="email" class="form-control form-control-user"
+                                                name="Email" id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="E-posta Adresi Giriniz">
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label for="password" class="text-info">Şifre</label>
+                                            <input type="password" name="Password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Şifre Giriniz">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Beni Hatırla</label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" id="loginbutton" class="btn btn-primary submit mb-3">Giriş</button> 
+                                        
+                                        <div class="text-forgotpassword" >
+                                        <a class="small" id="text-forgotpass" href="forgot-password.html">Şifremi Unuttum</a>
+                                        </div>
+                                        <div class="text-createaccount">
+                                        <a class="small" id="text-createacc" asp-controller="User" asp-action="Create">Yeni Hesap Oluştur!</a>
+                                        </div>
+                                       
+                       </form>
+                }
+              </div>
+            </div>
+      </div>
+  </section>
+</body>
+</html>
+@*
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Giriş Sayfası</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-size:cover;
+            font-family:sans-serif;
+        }
+        body{
+            display: grid;
+            background-image:url("https://elearningindustry.com/wp-content/uploads/2016/05/perspectives-human-resource-management-recruiting-companions.jpeg");   
+        }
+        
+        .loginbox{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            width:370px;
+            margin:auto 0;
+            border-radius: 10px 10px 10px 10px;
+            height:450px;
+            padding:80px 40px;
+            box-sizing:border-box;
+            background: rgba(255,255,255);
+           
+        }
+        .user{
+            width:100px;
+            overflow: auto;
+            height:100px;
+            top: calc(-100px/2);
+            left: 140px;
+            position: absolute;
+        }
+        .text-info-begin{
+            font-size: 28px;
+            position: fixed;
+            top: 65px;
+            right: 75px;
+            text-align: center;
+            color: rgba(0,0,0);
+        }
+        .text-info{
+            color: black !important;
+        }
+        .custom-control-label{
+            font-size:18px;
+            font-weight:500;
+            text-decoration:none;
+            color: #000000;
+            position: absolute;
+            top: 268px;
+            right: 188px;
+        }
+        
+        .text-forgotpassword{
+            position: absolute;
+            top: 370px;
+            right: 120px;
+           
+        }
+        .text-createaccount{
+            position: absolute;
+            top: 390px;
+            right: 120px;
+           
+        }
+        #text-forgotpass{
+            font-size:16px;
+            font-weight:500;
+            text-decoration:none;
+            color: #000000;
+        }
+
+        #text-createacc{
+            font-size:16px;
+            font-weight:500;
+            text-decoration:none;
+            color: #000000;
+        }
+        #customCheck{
+            position: absolute;
+            top: 275px;
+            right: 315px;
+        }
+        #exampleInputEmail{
+            font-weight:normal;
+            color: #000000;
+            width:120%;
+            margin-bottom:20px;
+            border:2px solid #000000;
+            outline:none;
+            height:10%;
+            color: #000000;
+            font-size:16px;
+            border-radius: 5px;
+        }
+        #exampleInputPassword{
+            font-weight:normal;
+            color: #000000;
+            display: block;
+            width:120%;
+            margin-bottom:40px;
+            border:2px solid #000000 ;
+            outline:none;
+            height:30px;
+            color: #000000;
+            font-size:16px;
+            border-radius: 5px;
+        }
+        #loginbutton{
+            width:200px;
+            border:none;
+            outline:none;
+            height:30px;
+            text-align: center;
+            line-height: 15px;
+            font-size:19px;
+            color: rgba(255,255,255);
+            border-radius:6px;
+            border:1px solid dodgerBlue;
+            position: fixed;
+            top: 315px;
+            right: 90px;
+        }
+        @@media only screen and (max-width: 800px){
+            #exampleInputEmail {
+                width: 100%;
+            }
+            #exampleInputPassword{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-primary">
+    <section class="main-content-w3layouts-agileits">
+        <div class="container">
+            <div class="loginbox">
+                <img src="https://icons.iconarchive.com/icons/graphicloads/flat-finance/256/person-icon.png" class="user"/>
+                <div class="col-xl-10 col-lg-12 col-md-9">
+                @using (Html.BeginForm("Index","Home",FormMethod.Post))
+                {
+                    <form class="user">
+                        <h2 class="text-info-begin">Hoşgeldiniz</h2><br>
+                                        <div class="form-group">
+                                            <label for="email" class="text-info">E-posta Adresi:</label>
+                                            <input type="email" name="Email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="E-posta Adresi Girin">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="text-info">Şifre:</label>
+                                            <input type="password" name="Password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Şifre Giriş">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Beni Hatırla</label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" id="loginbutton" class="btn btn-primary submit mb-3">Giriş</button> 
+                                        
+                                        <div class="text-forgotpassword" >
+                                        <a class="small" id="text-forgotpass" href="forgot-password.html">Şifremi Unuttum</a>
+                                        </div>
+                                        <div class="text-createaccount">
+                                        <a class="small" id="text-createacc" asp-controller="User" asp-action="Create">Yeni Hesap Oluştur!</a>
+                                        </div>
+                                       
+                       </form>
+                }
+              </div>
+            </div>
+      </div>
+  </section>
+</body>
+</html>
+*@

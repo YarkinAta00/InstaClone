@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HRManagementv2.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" asp-controller="Home" asp-action="Index">İK Yönetimi</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,11 +21,7 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item active">
-        <a class="nav-link"  asp-controller="Home" asp-action="Index">Ana Sayfa
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
+        
         <li class="nav-item">
         <a class="nav-link"  asp-controller="User" asp-action="Index">Kullanıcılar</a>
 
@@ -33,23 +30,40 @@
           <a class="nav-link" asp-controller="Job" asp-action="Index">İş İlanları</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" asp-controller="Candidate" asp-action="Index">Aday Bilgileri</a>
+        </li>        
+        <li class="nav-item">
+          <a class="nav-link" asp-controller="Interview" asp-action="Index">Mülakat Bilgileri</a>
         </li>
+        <li class="nav-item active">
+        <a class="nav-link"  asp-controller="Home" asp-action="Auth">Yetkilendirme
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mülakat</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" asp-controller="Interview" asp-action="Index">Ön Görüşme</a>
+            <a class="dropdown-item" href="#">Ana Mülakat</a>
+            <a class="dropdown-item" href="#">Sonuç</a>
+            @*
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Separated link</a>
+            *@
           </div>
         </li>
+        
       </ul>
+     
+      <img src="~/lib/media/monM.png" alt="" width="50" height="50">
+      
+      @*
       <form class="d-flex">
         <input class="form-control me-sm-2" type="text" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </form>
+      *@
     </div>
   </div>
 </nav>

@@ -1,0 +1,119 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Login Page";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Giriş Sayfası</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=10., shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      body {
+  margin: 0;
+  padding: 0;
+  background-image:url("https://www.chetu.com/img/blogs/hr-system-development-hire/hr-system-development-hire-faster-banner.jpg");
+  box-sizing: border-box;
+            background-size:cover;
+            font-family:sans-serif;
+        
+  
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 35%;
+  margin-left: 6%;
+  max-width: 90%;
+  height: 430px;
+  border: 1px solid #9C9C9C;
+  background-color: rgba(255,255,255, 0.9);
+  border-radius: 10px 10px 10px 10px;
+  
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+.user{
+            width:130px;
+            overflow: auto;
+            height:130px;
+            top: calc(-190px/2);
+            left: 36%;
+            position: absolute;
+        }
+         #loginbutton{
+            
+            border:none;
+            outline:none;
+            text-align: center;
+            line-height: 15px;
+            font-size:19px;
+            color: rgba(255,255,255);
+            border-radius:6px;
+            border:1px solid dodgerBlue;
+            
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-primary">
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+
+                    <div id="login-box" class="col-md-12">
+                        <img src="~/lib/media/monM.png" class="user"/><br />
+
+                            @using (Html.BeginForm(FormMethod.Post)){
+                        <form id="login-form" class="form" action="" method="post">
+                            <br />
+                            <h2 class="text-center text-dark">Hoşgeldiniz!</h2>
+                            <div class="form-group">
+                                <label for="email" class="text-dark font-weight-normal">Email Adresi</label><br>
+                                <input type="email" name="email" id="email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-dark font-weight-normal">Şifre</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Beni Hatırla</label>
+                                            </div>
+                                        </div>
+                                        <div class="col text-center"> <button type="submit" id="loginbutton" class="btn btn-primary submit mb-3 w-50">Giriş</button> </div>
+
+                                      <div class="col text-center">
+                                          <div class="text-forgotpassword" >
+                                        <a class="medium text-black" id="text-forgotpass" href="forgot-password.html">Şifreni mi unuttun?</a>
+                                        </div>
+                                        <div class="text-createaccount">
+                                        <a class="medium text-black" id="text-createacc" href="register.html">Kayıt ol!</a>
+                                        </div>
+                                        </div> 
+
+
+                        </form>
+                        }
+
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

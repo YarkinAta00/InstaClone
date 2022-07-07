@@ -1,0 +1,108 @@
+﻿@model Candidate
+@{
+        ViewData["Title"] = "Aday Bilgi Ekle";
+    }
+
+    <head>
+    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="Index" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        
+    
+        <title>Aday Bilgi Ekle</title>
+       
+     
+    </head>
+<div class="container-fluid p-3">
+    <div class="row pt-4">
+        <div class="col-3 text-start">
+            <h2 class="m-0 font-weight-bold text-heading">Bilgi Ekle</h2>
+        </div>
+    </div>
+</div>
+
+<style>
+    .column{
+        float:left;
+        width: 50%;
+    }
+    .row:after {
+        content:"";
+        display: table;
+        clear: both;
+    }
+    .centralize{
+        float:initial;
+        width:100%;
+    }
+
+</style>
+
+<form method="post">
+    <div class="row">
+        <div class="column">
+            <label asp-for="UserId">Kullanıcı ID</label>
+            <input asp-for="UserId" class="form-control" />
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div> 
+        <div class="column">
+            <label asp-for="Gender">Cinsiyet</label>
+            <input asp-for="Gender" class="form-control" />
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+        <div class="column">
+            <label asp-for="PhoneNumber">Telefon Numarası</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="column">
+            <label asp-for="Skills">Yetenekler</label>
+            <input asp-for="Skills" class="form-control"  select name="Skills"/>
+            <span asp-validation-for="Skills" class="text-danger"></span>
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="column">
+            <label asp-for="AddressLine">Adres</label>
+            <input asp-for="AddressLine" class="form-control" />
+            <span asp-validation-for="AddressLine" class="text-danger"></span>
+
+        </div>        
+        <div class="column">
+            <label asp-for="Hobbies">Hobileri</label>
+            <input asp-for="Hobbies" class="form-control" />
+
+        </div>        
+        <div class="column">
+            <label asp-for="City">İl</label>
+            <input asp-for="City" class="form-control" />
+
+        </div>        
+        <div class="column">
+            <label asp-for="PersonalityTest">Kişilik Testi Sonucu</label>
+            <input asp-for="PersonalityTest" class="form-control" />
+
+        </div>        
+        <div class="column">
+            <label asp-for="Province">İlçe</label>
+            <input asp-for="Province" class="form-control" />
+        </div> 
+      
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary" style="width:150px">Onayla</button>
+        <a asp-controller="Candidate" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Geri Dön
+        </a>
+</form>
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial"/>
+    }
+}

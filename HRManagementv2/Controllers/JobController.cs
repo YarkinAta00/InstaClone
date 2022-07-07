@@ -16,7 +16,7 @@ namespace HRManagementv2.Controllers
         public IActionResult Index()
         {
             IEnumerable<Job> objJobList = _db.Jobs;
-            return View();
+            return View(objJobList);
         }
 
         public IActionResult Create()

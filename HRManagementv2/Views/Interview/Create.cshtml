@@ -1,0 +1,122 @@
+﻿@model Interview
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Index" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<link rel=”stylesheet” href="~/css/CustomSelect.css" type=”text/css”/>
+
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({ minDate: "-3M -15D", maxDate: "+3M +15D",changeMonth:true,changeYear:true });
+  } );
+  </script>
+
+  <script>
+    $(document).ready(function() {
+    $('.select2').select2({
+    closeOnSelect: false
+});
+});
+</script>
+
+
+
+
+    <title>Ön Mülakat Bilgisi Ekle</title>
+   
+ 
+</head>
+<div class="container-fluid p-3">
+        <div class="row pt-4">
+            <div class="col-3 text-start">
+                <h2 class="m-0 font-weight-bold text-heading">Ön Mülakat Bilgisi Ekle</h2>
+            </div>
+        </div>
+    </div>
+<style>
+.column{
+    float:left;
+    width: 50%;
+}
+.row:after {
+    content:"";
+    display: table;
+    clear: both;
+}
+.centralize{
+    float:initial;
+    width:100%;
+}
+
+
+</style>
+
+<form method="post">
+<div class="row">
+    <div class="column">
+        <label asp-for="InterviewId">Kullanıcı ID</label>
+        <input asp-for="InterviewId" class="form-control" />
+        <span asp-validation-for="InterviewId" class="text-danger"></span>
+    </div> 
+    <div class="column">
+        <label asp-for="SalaryExpectation">Maaş Beklentisi</label>
+        <input asp-for="SalaryExpectation" class="form-control" />
+        <span asp-validation-for="SalaryExpectation" class="text-danger"></span>
+    </div>
+    <div class="column">
+        <label asp-for="Assessment">Değerlendirme</label>
+        <input asp-for="Assessment" class="form-control" />
+        <span asp-validation-for="Assessment" class="text-danger"></span>
+    </div>
+    <div class="column">
+        <label asp-for="AlternateRole">Alternatif Rol</label>
+        <input asp-for="AlternateRole" class="form-control" />
+        <span asp-validation-for="AlternateRole" class="text-danger"></span>
+    </div>
+</div>
+    
+<div class="row">
+    <div class="column">
+        <label asp-for="Title">Başlık</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>      
+    
+    <div class="column">
+        <label asp-for="Participants">Katılımcılar</label>
+        <input asp-for="Participants" class="form-control" />
+    </div>  
+
+    <div class="column">
+            <label asp-for="InterviewDate">Görüşme Tarihi</label>
+        <input placeholder="GG/AA/YYYY" type = "text" id ="datepicker" asp-for="InterviewDate" class="form-control" />
+    </div>        
+
+
+
+    
+    <!-- CUSTOM SELECT -->
+    <div class="column">
+        <label asp-for="Type">Görüşme Şekli</label>
+        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option selected="selected">Yüzyüze</option>
+            <option>Online</option>
+            <option>Tele-Konferans</option>
+        </select> </div> <!-- /.form-group -->
+        </div>       
+  
+<br />
+<button type="submit" class="btn btn-primary" style="width:150px">Onayla</button>
+    <a asp-controller="Candidate" asp-action="Index" class="btn btn-secondary" style="width:150px">
+        Geri Dön
+    </a>
+</form>
+
+

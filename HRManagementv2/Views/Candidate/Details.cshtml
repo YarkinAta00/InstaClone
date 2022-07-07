@@ -1,0 +1,59 @@
+﻿@model Candidate
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-info">Aday Detay Bilgisi</h2>
+        </div>       
+    </div>
+</div>
+<br />
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Telefon Numarası</th>
+            <th>Adres</th>
+            <th>İl</th>
+            <th>İlçe</th>
+            <th>Cinsiyet</th>
+            <th>Yetenekler</th>
+            <th>Hobiler</th>
+            <th>Kişilik Testi Sonucu</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>
+            <input asp-for="PhoneNumber" class="form-control" />
+            </th>            
+            <th>
+            <input asp-for="AddressLine" class="form-control" />
+            </th>            
+            <th>
+            <input asp-for="City" class="form-control" />
+            </th>            
+            <th>
+            <input asp-for="Province" class="form-control" />
+            </th>
+            <th>
+            <input asp-for="Gender" class="form-control" />
+            </th>
+            <th>
+            <input asp-for="Skills" class="form-control" />
+            </th>            
+            <th>
+            <input asp-for="Hobbies" class="form-control" />
+            </th>            
+            <th>
+            <input asp-for="PersonalityTest" class="form-control" />
+            </th>          
+        </tr>
+        
+    </tbody>
+</table>

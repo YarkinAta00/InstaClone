@@ -1,0 +1,114 @@
+﻿using HRManagementv2.Data;
+using HRManagementv2.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace HRManagementv2.Controllers
+{
+    public class CandidateController : Controller
+    {
+        private readonly ApplicationDbContext _db;
+
+        public CandidateController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+        public IActionResult Index()
+        {
+
+            IEnumerable<Candidate> objCandidateList = _db.Candidates;
+            return View(objCandidateList);
+
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Candidate obj)
+        {
+            if (obj.PhoneNumber != null )
+            {
+                _db.Candidates.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            
+            return View(obj);
+        } 
+        
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var candidateFromDb = _db.Candidates.Find(id);
+            //var candidateFromDbFirst = _db.Candidates.FirstOrDefault(u=>u.CandidateId==id);
+            //var candidateFromDbSingle = _db.Candidates.SingleOrDefault(u=>u.CandidateId==CandidateId);
+
+            if(candidateFromDb== null)
+            {
+                return NotFound();
+            }
+                return View(candidateFromDb);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Candidate obj)
+        {
+            if (obj.CandidateId != null) {
+                _db.Candidates.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        
+            return View(obj);
+        }
+            
+        public ActionResult Details(int? id)
+        {
+            var candidateFromDb = _db.Candidates.Find();    
+
+            if (candidateFromDb == null)
+                return View("NotFound");
+            else
+                return View("Details", candidateFromDb);
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var candidateFromDb = _db.Candidates.Find(id);
+
+            if (candidateFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(candidateFromDb);
+        }
+        [HttpPost,ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePOST(int? id)
+        {
+            var obj = _db.Candidates.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.Candidates.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+    }
+
+}
+
+

@@ -1,0 +1,39 @@
+﻿@model Job
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">İş İlanı Oluştur</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="JobTitle">İşin İsmi</label>
+            <input asp-for="JobTitle" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Department">Departmanı</label>
+            <input asp-for="Department" class="form-control" />
+        </div> 
+        <div class="mb-3">
+            <label asp-for="Location">Konumu</label>
+            <input asp-for="Location" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="EndDate">İlanın Bitiş Tarihi</label>
+            <input asp-for="EndDate" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description">İş Tanımı</label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="IsActive">İlan Yayınlansın Mı</label>
+            
+            <input type="checkbox" checked="" asp-for="IsActive"  />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Onayla</button>
+        <a asp-controller="Job" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Geri Dön
+        </a>
+    </div>
+</form>
