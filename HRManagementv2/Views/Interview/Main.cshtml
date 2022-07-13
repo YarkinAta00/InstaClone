@@ -7,7 +7,7 @@
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-info">İş Görüşmesi Bilgileri</h2>
+            <h2 class="text-info">Ana Görüşmesi Bilgileri</h2>
         </div>       
         <div class="col-6 text-end">
             <a asp-controller="Interview" asp-action="Create" class="btn btn-primary">
@@ -29,20 +29,21 @@
             <th>Katılımcılar</th>
         </tr>
     </thead>
-    <tbody>
-        @foreach(var obj in Model)
-        {
+
+     <tbody>
+       
+        
             <tr> 
 
-                <td>@obj.InterviewId</td>
-                <td>@obj.Title</td>
-                <td>@obj.Type</td>
-                <td>@obj.InterviewDate</td>
-                <td>@obj.SalaryExpectation</td>
-                <td>@obj.AlternateRole</td>
-                <td>@obj.Participants</td>
+                <td>InterviewId2</td>
+                <td>Title2</td>
+                <td>Type2</td>
+                <td>InterviewDate2</td>
+                <td>SalaryExpectation2</td>
+                <td>AlternateRole2</td>
+                <td>Participants2</td>
 
             </tr>
-        }
+        
     </tbody>
 </table>

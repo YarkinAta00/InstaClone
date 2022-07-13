@@ -23,6 +23,17 @@ namespace HRManagementv2.Controllers
         {
             return View();
         }
+
+        public IActionResult Main()
+        {
+            return View();
+        }
+
+        public IActionResult Result()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Interview obj)

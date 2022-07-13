@@ -45,8 +45,8 @@
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mülakat</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" asp-controller="Interview" asp-action="Index">Ön Görüşme</a>
-            <a class="dropdown-item" href="#">Ana Mülakat</a>
-            <a class="dropdown-item" href="#">Sonuç</a>
+            <a class="dropdown-item" asp-controller="Interview" asp-action="Main">Ana Görüşme</a>
+            <a class="dropdown-item" asp-controller="Interview" asp-action="Result">Sonuç Görüşmesi</a>
             @*
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Separated link</a>

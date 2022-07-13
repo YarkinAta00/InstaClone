@@ -29,14 +29,14 @@
 
 
 
-    <title>Ön Mülakat Bilgisi Ekle</title>
+    <title>Mülakat Bilgisi Ekle</title>
    
  
 </head>
 <div class="container-fluid p-3">
         <div class="row pt-4">
             <div class="col-3 text-start">
-                <h2 class="m-0 font-weight-bold text-heading">Ön Mülakat Bilgisi Ekle</h2>
+                <h2 class="m-0 font-weight-bold text-heading">Mülakat Bilgisi Ekle</h2>
             </div>
         </div>
     </div>
@@ -65,6 +65,7 @@
         <input asp-for="InterviewId" class="form-control" />
         <span asp-validation-for="InterviewId" class="text-danger"></span>
     </div> 
+
     <div class="column">
         <label asp-for="SalaryExpectation">Maaş Beklentisi</label>
         <input asp-for="SalaryExpectation" class="form-control" />
@@ -84,10 +85,12 @@
     
 <div class="row">
     <div class="column">
-        <label asp-for="Title">Başlık</label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
-    </div>      
+        <label>Mülakat Aşaması</label>
+        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option selected="selected">Ön Görüşme</option>
+            <option>Ana Görüşme</option>
+            <option>Sonuç Görüşmesi</option>
+        </select> </div> <!-- /.form-group --> 
     
     <div class="column">
         <label asp-for="Participants">Katılımcılar</label>
@@ -111,6 +114,7 @@
             <option>Tele-Konferans</option>
         </select> </div> <!-- /.form-group -->
         </div>       
+
   
 <br />
 <button type="submit" class="btn btn-primary" style="width:150px">Onayla</button>
