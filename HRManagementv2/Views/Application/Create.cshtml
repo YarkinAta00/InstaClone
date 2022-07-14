@@ -1,0 +1,63 @@
+﻿@model Application
+
+@{
+        ViewData["Title"] = "Kullanıcı Kayıt";
+}
+
+<link href="@Url.Content("~/blueTheme.css")" rel="stylesheet" type="text/css"/>
+
+
+
+
+
+
+<form method="post">
+    <div class="border p-3 mt-4" >
+        <div class="row pb-2" >
+            <h2 class="text-primary">Başvuru Oluştur</h2>
+            <hr />
+        </div>
+        <div class="mb-3" >
+            <label asp-for="JobId">İş İlanı Kodu*</label>
+            <input type="text" asp-for="JobId" class="form-control" />
+            <span asp-validation-for="JobId" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="CandidateId">Aday Kodu*</label>
+            <input type="text" asp-for="CandidateId" class="form-control" />
+            <span asp-validation-for="CandidateId" class="text-danger"></span>
+
+        </div> 
+        <div class="mb-3">
+            <label asp-for="Status">Durumu</label>
+            <input type="text" asp-for="Status" class="form-control" />
+            <span asp-validation-for="Status" class="text-danger"></span>
+
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="FoundFrom">Bizi Nereden Buldunuz ?*</label>
+            <input type="text" asp-for="FoundFrom" class="form-control" />
+            <span asp-validation-for="FoundFrom" class="text-danger"></span>
+
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Onayla</button>
+        <a asp-controller="Interview" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Geri Dön
+        </a>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

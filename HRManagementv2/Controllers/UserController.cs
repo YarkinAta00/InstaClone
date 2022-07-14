@@ -65,5 +65,6 @@ namespace HRManagementv2.Controllers
             }
             return View(obj);   
         }
+
     }
 }

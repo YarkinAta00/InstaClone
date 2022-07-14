@@ -1,0 +1,48 @@
+﻿.a1, .a2, .a3, .a4 {
+    border: 4px solid;
+    border-radius:25px;
+}
+
+.VerticalSpace, .HorizontalSpace {
+    border: 0px;
+    float: left;
+}
+
+.a2 {
+    height: 250px;
+    float: right;
+    width: 74%;
+}
+
+.a3 {
+    height: 350px;
+    float: right;
+    width: 35%;
+}
+
+.a4 {
+    height: 350px;
+    float: right;
+    width: 35%;
+}
+
+.a1 {
+    height: 617px;
+    width: 23%;
+    float: left;
+    background-color: #F5F6FA;
+    align-items: center;
+    border-radius: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+
+.VerticalSpace {
+    width: 60%;
+    height: 10px;
+}
+
+.HorizontalSpace {
+    height: 350px;
+    width: 4%;
+}

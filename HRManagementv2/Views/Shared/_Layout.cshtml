@@ -14,16 +14,22 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" asp-controller="Home" asp-action="Index">İK Yönetimi</a>
+    <img src="~/lib/media/monM.png" alt="" width="50" height="50">
+    <a class="navbar-brand" asp-controller="Home" asp-action="Index"> Monovi İK</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
+      
+      
         
         <li class="nav-item">
         <a class="nav-link"  asp-controller="User" asp-action="Index">Kullanıcılar</a>
+
+        </li><li class="nav-item">
+        <a class="nav-link"  asp-controller="Application" asp-action="Index">Başvurular</a>
 
         </li>
         <li class="nav-item">
@@ -56,7 +62,6 @@
         
       </ul>
      
-      <img src="~/lib/media/monM.png" alt="" width="50" height="50">
       
       @*
       <form class="d-flex">

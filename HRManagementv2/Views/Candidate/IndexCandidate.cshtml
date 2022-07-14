@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CandidateInf>
+﻿@model IEnumerable<Candidate>
     @{
         ViewData["Title"] = "Aday Bilgileri";
     }
@@ -77,10 +77,6 @@ else{
             td{
                 word-wrap: break-all;
             }
-            
-            .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-            background-color: aliceblue;
-            }
         </style>
     </head>
 
@@ -106,20 +102,18 @@ else{
                 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover" id="candidateTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="candidateTable" width="100%" cellspacing="0">
                             <thead style="background-color: steelblue;">
                                 <tr style="color: white;">
                                             <th><input type="checkbox" name="select_all" value="1" id="checkBoxAll"></th>
-                                            <th>Ayrıntılar</th>
-                                            <th>Adı</th>
-                                            <th>Soyadı</th>
+                                            <th>ID</th>
+                                            <th>Telefon Numarası</th>
+                                            <th>Adres</th>
                                             <th>İl</th>
                                             <th>Cinsiyet</th>
-                                            <th>Telefon Numarası</th>
                                             <th>Yetenekler</th>
+                                            <th>Hobiler</th>
                                             <th>Kişilik Testi Sonucu</th>
-                                            <th>Yabancı Dili</th>
-                                            <th>Yabancı Dil Puanı</th>
                                         </tr>
                                     </thead>
         <tbody>
@@ -132,21 +126,16 @@ else{
             {
                 <tr> 
                     <td><input type="checkbox" name="box" class="checkBoxId" value="@obj.CandidateId"></td>
-                    <td>
-                        <div class="w-75 btn-group" role="group">
-                        <a asp-controller="Candidate" asp-action="Details" asp-route-id="@obj.CandidateId" class="btn btn-primary mx-2"><i class="bi bi-card-text"></i> </a>
-                        </div>
-                     </td>
-                    <td>@obj.FirstName</td>
-                    <td>@obj.LastName</td>
+                    
+                    <td>@obj.PhoneNumber</td>
+                    <td>@obj.AddressLine</td>
                     <td>@obj.City</td>
                     <td>@obj.Gender</td>
-                    <td>@obj.PhoneNumber</td>
                     <td>@obj.Skills</td>
+                    <td>@obj.Hobbies</td>
                     <td>@obj.PersonalityTest</td>
-                    <td>@obj.LanguageName</td>
-                    <td>@obj.LanguageLevel</td>
                     
+    
                 </tr>
     
                 

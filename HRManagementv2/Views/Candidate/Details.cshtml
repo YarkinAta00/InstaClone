@@ -1,59 +1,125 @@
-﻿@model Candidate
+﻿@model CandidateInf
 
 @{
     ViewData["Title"] = "Details";
 }
 
+<html>
+<head>
 
-<div class="container p-3">
-    <div class="row pt-4">
-        <div class="col-6">
-            <h2 class="text-info">Aday Detay Bilgisi</h2>
-        </div>       
-    </div>
-</div>
-<br />
+</head>
+<body>
 
-<table class="table table-bordered table-striped" style="width:100%">
-    <thead>
-        <tr>
-            <th>Telefon Numarası</th>
-            <th>Adres</th>
-            <th>İl</th>
-            <th>İlçe</th>
-            <th>Cinsiyet</th>
-            <th>Yetenekler</th>
-            <th>Hobiler</th>
-            <th>Kişilik Testi Sonucu</th>            
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>
-            <input asp-for="PhoneNumber" class="form-control" />
-            </th>            
-            <th>
-            <input asp-for="AddressLine" class="form-control" />
-            </th>            
-            <th>
-            <input asp-for="City" class="form-control" />
-            </th>            
-            <th>
-            <input asp-for="Province" class="form-control" />
-            </th>
-            <th>
-            <input asp-for="Gender" class="form-control" />
-            </th>
-            <th>
-            <input asp-for="Skills" class="form-control" />
-            </th>            
-            <th>
-            <input asp-for="Hobbies" class="form-control" />
-            </th>            
-            <th>
-            <input asp-for="PersonalityTest" class="form-control" />
-            </th>          
-        </tr>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 5 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    b {
+        font-size:12px;
+        align-items:center;
+        text-align:center;
+        color:aquamarine;
+    }
+    h3{
+        color:#FB100D;
+    }
+    i{
+        color:#FB100D;
+    }
+    #info{
+        color:slategrey;
+        text-align:start;
+        font-size:20px;
+        font-weight:800;
+        font-family:'Century Gothic';
+    } 
+
+    #cardPhoto{
+
+        background-color:#F5F6FA; 
+        border-radius:25px;
+        margin-right:25px;
+        margin-top:25px;
+        font-size:48px;
+        items-align:center;
+        margin:auto;
         
-    </tbody>
-</table>
+    }
+    #card{
+
+    background-color:#F5F6FA; 
+    align-items:center;
+    border-radius:25px;
+    margin-right:25px;
+    margin-top:25px;
+    }
+
+</style>
+
+</head>
+<body>
+    
+<div class="container mt-3">
+<h1><i class="bi bi-calendar-plus"></i> @Model.CreatedDate.Day.@Model.CreatedDate.Month.@Model.CreatedDate.Year
+</h1>
+</div>
+
+        <link rel=stylesheet href="~/css/CandInfo.css" type="text/css">
+
+      
+
+<div class="container mt-3">
+
+  <div class="row">
+    <div class="col-sm-3" id="cardPhoto">
+        <i class="bi bi-person"></i>
+    </div>
+  
+    <div class="col-sm-3" id="card">
+      <h3>Kişi Bilgileri</h3>
+      <a>@Model.FirstName</a>
+      <p id="info">@Model.Email </p>
+      <p id="info">@Model.PhoneNumber </p>
+      
+    </div>
+    
+    <div class="col-sm-3" id="card">
+      <h3>İletişim</h3>
+      <p id="info">@Model.Email </p>
+      <p id="info">@Model.PhoneNumber </p>
+      
+    </div>
+    
+    <div class="col-sm-3" id="card">
+      <h3>Başvuru Durumu</h3>
+      <p id="info">On Hold</p>
+      
+    </div>
+    <div class="col-sm-3" id="card">
+      <h3>Aday Bilgileri</h3>
+      <p id="info">Yabancı Dil : 5</p>
+      <p id="info">Cinsiyet</p>
+      <p id="info">Yetenekler</p>
+      <p id="info">Hobileri</p>
+      <p id="info">Kişilik Testi</p>
+    </div>
+  </div>
+</div>
+   
+
+
+</body>
+</html>
+
+
+
+
+
+</body>
+</html>

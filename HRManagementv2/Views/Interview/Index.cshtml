@@ -1,8 +1,68 @@
-﻿@model IEnumerable<Interview>
+﻿@model IEnumerable<InterviewInf>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Ön Görüşmeler";
 }
+  <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        
+       
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+        
 
+ <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let table = new DataTable('#interviewTable');
+          });
+        
+           
+            
+            $(function() {
+                jQuery("[name=select_all]").click(function(source) { 
+                checkboxes = jQuery("[name=box]");
+                for(var i in checkboxes){
+                    checkboxes[i].checked = source.target.checked;
+             }
+            });
+     })
+            $(document).ready(function(){
+	
+            $(".btn-danger").click(function(){
+            $(this).addClass('loading');
+            if(confirm("Silmek istediğine emin misin?"))
+            {
+                var arr_id = [];
+       
+            $(":checkbox:checked").each(function(i){
+                arr_id[i] = $(this).val();
+            })
+            if(arr_id.length == 0){
+            alert("En az bir tane seç!");
+            }else{
+                for(var i = 0;i<arr_id.length;i++){
+               
+                    $("."+arr_id[i]).css({"background":"red"});
+                                $("."+arr_id[i]).fadeOut("slow");
+               
+            }
+        }
+       
+    }
+            else{
+            return false;
+        }
+            })
+   
+        })
+</script>
+</head>
+<body>
 
 <div class="container p-3">
     <div class="row pt-4">
@@ -17,32 +77,44 @@
 </div>
 <br />
 
-<table class="table table-bordered table-striped" style="width:100%">
+<table id="interviewTable" class="table table-hover table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Başlık</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Başvurulan İş</th>
+            <th>Durumu</th>
             <th>Görüşme Türü</th>
             <th>Görüşme Tarihi</th>
             <th>Maaş Beklentisi</th>
             <th>Alternatif Rol</th>
             <th>Katılımcılar</th>
+            <th>Bizi Nereden Buldun</th>
         </tr>
     </thead>
     <tbody>
         @foreach(var obj in Model)
         {
-            <tr> 
+            if (@obj.State == "Ön Görüşme")
+            {
+                <tr> 
 
-                <td>@obj.InterviewId</td>
-                <td>@obj.Title</td>
+                <td>@obj.FirstName</td>
+                <td>@obj.LastName</td>
+                <td>@obj.JobTitle</td>
+                <td>@obj.State</td>
                 <td>@obj.Type</td>
                 <td>@obj.InterviewDate</td>
                 <td>@obj.SalaryExpectation</td>
                 <td>@obj.AlternateRole</td>
                 <td>@obj.Participants</td>
+                <td>@obj.FoundFrom</td>
 
             </tr>
+            }
         }
     </tbody>
 </table>
+
+</body>
+</html>

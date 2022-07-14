@@ -13,14 +13,49 @@ namespace HRManagementv2.Controllers
         {
             _db = db;
         }
+
+
+        /*
         public IActionResult Index()
         {
-
             IEnumerable<Candidate> objCandidateList = _db.Candidates;
             return View(objCandidateList);
 
         }
+        */
+        public IActionResult Index()
+        {
 
+            IQueryable<CandidateInf> candidateList =
+                (from CndInf in _db.Candidates
+                    join LngInf in _db.Languages
+                    on CndInf.CandidateId equals LngInf.CandidateId
+                    join UserInf in _db.Users
+                    on CndInf.UserId equals UserInf.UserId
+
+                    select new CandidateInf()
+                    {
+                        FirstName       = UserInf.FirstName,
+                        LastName        = UserInf.LastName, 
+                        CandidateId     = CndInf.CandidateId,
+                        UserId          = CndInf.UserId,
+                        PhoneNumber     = CndInf.PhoneNumber,
+                        Gender          = CndInf.Gender,
+                        PersonalityTest = CndInf.PersonalityTest,
+                        AddressLine     = CndInf.AddressLine,
+                        City            = CndInf.City,
+                        Province        = CndInf.Province,
+                        Skills          = CndInf.Skills,
+                        Hobbies         = CndInf.Hobbies,
+                        LanguageName    = LngInf.LanguageName,
+                        LanguageLevel   = LngInf.LanguageLevel,
+
+                    }) ;
+            return View(candidateList);
+        }
+        
+
+        
         public IActionResult Create()
         {
             return View();
@@ -30,6 +65,7 @@ namespace HRManagementv2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Candidate obj)
         {
+
             if (obj.PhoneNumber != null )
             {
                 _db.Candidates.Add(obj);
@@ -71,12 +107,55 @@ namespace HRManagementv2.Controllers
             
         public ActionResult Details(int? id)
         {
-            var candidateFromDb = _db.Candidates.Find();    
+            //var candidateFromDb = _db.Candidates.Find(id);    
 
+             IQueryable<CandidateInf> candidateList =
+                (from CndInf in _db.Candidates
+                    join LngInf in _db.Languages
+                    on CndInf.CandidateId equals LngInf.CandidateId
+                    join UserInf in _db.Users
+                    on CndInf.UserId equals UserInf.UserId
+
+                    select new CandidateInf()
+                    {
+                        FirstName       = UserInf.FirstName,
+                        LastName        = UserInf.LastName,
+                        Email           = UserInf.Email,
+                        CreatedDate     = UserInf.CreatedDate,
+                        CandidateId     = CndInf.CandidateId,
+                        UserId          = CndInf.UserId,
+                        PhoneNumber     = CndInf.PhoneNumber,
+                        Gender          = CndInf.Gender,
+                        PersonalityTest = CndInf.PersonalityTest,
+                        AddressLine     = CndInf.AddressLine,
+                        City            = CndInf.City,
+                        Province        = CndInf.Province,
+                        Skills          = CndInf.Skills,
+                        Hobbies         = CndInf.Hobbies,
+                        LanguageName    = LngInf.LanguageName,
+                        LanguageLevel   = LngInf.LanguageLevel,
+
+                    }) ;
+
+            var candidateObj = new CandidateInf();
+
+            foreach(var obj in candidateList)
+            {
+                if(obj.CandidateId == id)
+                {
+                    candidateObj = obj;
+                }
+            }
+
+            return View("Details", candidateObj);
+
+
+            /*
             if (candidateFromDb == null)
                 return View("NotFound");
             else
-                return View("Details", candidateFromDb);
+                return View("Details", candidateList);
+            */
         }
 
         public IActionResult Delete(int? id)
@@ -93,6 +172,7 @@ namespace HRManagementv2.Controllers
             }
             return View(candidateFromDb);
         }
+
         [HttpPost,ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
@@ -106,6 +186,8 @@ namespace HRManagementv2.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+      
 
     }
 
