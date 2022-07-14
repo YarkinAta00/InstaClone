@@ -32,7 +32,7 @@ namespace HRManagementv2.Controllers
             else
             return RedirectToAction("Login");
         }
-
+        
         public IActionResult Index()
         {
             return View();

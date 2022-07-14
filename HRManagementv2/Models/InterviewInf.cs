@@ -2,7 +2,7 @@
 
 namespace HRManagementv2.Models
 {
-    public class Interview
+    public class InterviewInf
     {
         [Key]
         public int InterviewId { get; set; }
@@ -19,6 +19,10 @@ namespace HRManagementv2.Models
         [StringLength(50)]
         public string? AlternateRole { get; set; }
         public string? State { get; set; }
+        public string? ApplicationStatus { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string FoundFrom { get; set; }
 
     }
 }

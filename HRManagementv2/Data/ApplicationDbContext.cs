@@ -22,6 +22,7 @@ namespace HRManagementv2.Data
         public DbSet<Interview> InterviewDetails { get; set; }
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Language> Languages { get; set; }
+        public DbSet<Application> Applications { get; set; }
 
     }
 

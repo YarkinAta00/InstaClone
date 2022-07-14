@@ -13,14 +13,49 @@ namespace HRManagementv2.Controllers
         {
             _db = db;
         }
+
+
+        /*
         public IActionResult Index()
         {
-
             IEnumerable<Candidate> objCandidateList = _db.Candidates;
             return View(objCandidateList);
 
         }
+        */
+        public IActionResult Index()
+        {
 
+            IQueryable<CandidateInf> candidateList =
+                (from CndInf in _db.Candidates
+                    join LngInf in _db.Languages
+                    on CndInf.CandidateId equals LngInf.CandidateId
+                    join UserInf in _db.Users
+                    on CndInf.UserId equals UserInf.UserId
+
+                    select new CandidateInf()
+                    {
+                        FirstName       = UserInf.FirstName,
+                        LastName        = UserInf.LastName, 
+                        CandidateId     = CndInf.CandidateId,
+                        UserId          = CndInf.UserId,
+                        PhoneNumber     = CndInf.PhoneNumber,
+                        Gender          = CndInf.Gender,
+                        PersonalityTest = CndInf.PersonalityTest,
+                        AddressLine     = CndInf.AddressLine,
+                        City            = CndInf.City,
+                        Province        = CndInf.Province,
+                        Skills          = CndInf.Skills,
+                        Hobbies         = CndInf.Hobbies,
+                        LanguageName    = LngInf.LanguageName,
+                        LanguageLevel   = LngInf.LanguageLevel,
+
+                    }) ;
+            return View(candidateList);
+        }
+        
+
+        
         public IActionResult Create()
         {
             return View();
@@ -93,6 +128,7 @@ namespace HRManagementv2.Controllers
             }
             return View(candidateFromDb);
         }
+
         [HttpPost,ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
