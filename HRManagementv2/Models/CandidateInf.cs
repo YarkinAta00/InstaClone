@@ -38,6 +38,15 @@ namespace HRManagementv2.Models
         public string Email { get; set; }
         public DateTime CreatedDate { get; set; }
 
+        public DateTime AppCreatedDate {get; set;}
+        public string  AppStatus { get; set; }
+
+        public string FoundFrom { get; set; }
+
+        public string JobTitle { get; set; }
+        public string Department { get; set; }
+        
+
         public virtual User User { get; set; }
 
         public ICollection<Language> Languages { get; set; }

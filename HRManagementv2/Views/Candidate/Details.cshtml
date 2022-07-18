@@ -11,106 +11,139 @@
 <body>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap 5 Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<style>
-    b {
-        font-size:12px;
-        align-items:center;
-        text-align:center;
-        color:aquamarine;
-    }
-    h3{
-        color:#FB100D;
-    }
-    i{
-        color:#FB100D;
-    }
-    #info{
-        color:slategrey;
-        text-align:start;
-        font-size:20px;
-        font-weight:800;
-        font-family:'Century Gothic';
-    } 
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Bootstrap 5 Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="~/css/blueTheme.css" rel="stylesheet">
 
-    #cardPhoto{
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        background-color:#F5F6FA; 
-        border-radius:25px;
-        margin-right:25px;
-        margin-top:25px;
-        font-size:48px;
-        items-align:center;
-        margin:auto;
-        
-    }
-    #card{
+        <style>
+            b {
+            font-size:12px;
+            align-items:center;
+            text-align:center;
+            color:aquamarine;
+            }
+            #dateText{
+            }
+            h3{
+            color:black;
+            text-align: center;
+            }
+            i{
+            color:purple;
+            }
+            #info{
+            color:slategrey;
+            text-align:center;
+            font-size:20px;
+            font-weight:800;
+            font-family:'Century Gothic';
+            margin-top:10px;
+            }
+            #nameInfo{
+            color:black;
+            text-align:start;
+            font-size:25px;
+            font-weight:1000;
+            font-family:'Century Gothic';
+            } 
 
-    background-color:#F5F6FA; 
-    align-items:center;
-    border-radius:25px;
-    margin-right:25px;
-    margin-top:25px;
-    }
+            #cardPhoto{
 
-</style>
+            background-color:#F5F6FA; 
+            border-radius:25px;
+            margin-right:25px;
+            margin-top:25px;
+            font-size:48px;
+            items-align:center;
+            margin:auto;
 
-</head>
-<body>
-    
-<div class="container mt-3">
-<h1><i class="bi bi-calendar-plus"></i> @Model.CreatedDate.Day.@Model.CreatedDate.Month.@Model.CreatedDate.Year
-</h1>
+            }
+            #card{
+
+            background-color:white; 
+            align-items:left;
+            border-radius:25px;
+            margin-right:25px;
+            margin-top:25px;
+            justify-ceontent:left;
+            height: 400px;
+            }
+            .center {
+            display: block;
+            margin-left: 500px;
+            margin-right: auto;
+            margin-bottom: 10px;
+            width: 50%;
+;           text-align:center;
+            }
+
+        </style>
+
+    </head>
+    <body style="background:#f5f6fa;">
+
+        <div class="container mt-5">
+            <i class="bi bi-calendar-plus-fill" style="font-size:20px"></i>
+            <a id="info">@Model.CreatedDate.Day.@Model.CreatedDate.Month.@Model.CreatedDate.Year</a>
+
+            <p id="nameInfo" style="margin-top:20px">@Model.FirstName @Model.LastName
+                @if (@Model.Gender == "Erkek") {
+                    <i class="bi bi-gender-male" style="font-size:20px; color:black"></i>
+                }
+                else{
+                    <i class="bi bi-gender-female" style="font-size:20px; color:black"></i>
+                }
+</p>
+
+
+
 </div>
 
         <link rel=stylesheet href="~/css/CandInfo.css" type="text/css">
 
-      
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3" id="card">
 
-<div class="container mt-3">
+         <img src="~/media/person-icon.png" alt="Profil Resmi" width="100" height="120 class="center" style="margin-left:100px; margin-top:20px">
+          <hr style="height:4px;border-width:0;color:blue;background-color:purple">
+          <p id="info"><i class="bi bi-phone-fill"></i> +90 @Model.PhoneNumber </p>
+          <p id="info"><i class="bi bi-envelope-fill"></i> @Model.Email </p>
+          <p id="info">@Model.City </p>
+        </div>
 
-  <div class="row">
-    <div class="col-sm-3" id="cardPhoto">
-        <i class="bi bi-person"></i>
-    </div>
-  
-    <div class="col-sm-3" id="card">
-      <h3>Kişi Bilgileri</h3>
-      <a>@Model.FirstName</a>
-      <p id="info">@Model.Email </p>
-      <p id="info">@Model.PhoneNumber </p>
-      
-    </div>
+        <div class="col-sm-3 " id="card">
+          <h3 class="mt-3">Aday Bilgileri</h3>
+          <hr style="height:2px;border-width:0;background-color:purple">
+          <p id="info" ><i class="bi bi-map-fill"></i> @Model.AddressLine </p>
+          <p id="info" >@Model.Province / @Model.City </p>
+          <p id="info" ><i class="bi bi-translate"></i> @Model.LanguageName | @Model.LanguageLevel</p>
+          <p id="info" >@Model.PersonalityTest</p>
+          <p id="info" >@Model.Hobbies</p>
+          <p id="info" >@Model.Skills</p>
+          
+        </div>
     
-    <div class="col-sm-3" id="card">
-      <h3>İletişim</h3>
-      <p id="info">@Model.Email </p>
-      <p id="info">@Model.PhoneNumber </p>
-      
+        <div class="col-sm-3" id="card">
+          <h3 class="mt-3">Başvuru Bilgileri</h3>
+          <hr style="height:2px;border-width:0;background-color:purple" />
+          <p id="info">@Model.AppCreatedDate</p>
+          <p id="info">@Model.JobTitle</p>
+          <p id="info">@Model.Department</p>
+          <p id="info">@Model.FoundFrom</p>
+          <p id="info">@Model.AppStatus</p>
+          
+        </div>
     </div>
-    
-    <div class="col-sm-3" id="card">
-      <h3>Başvuru Durumu</h3>
-      <p id="info">On Hold</p>
-      
-    </div>
-    <div class="col-sm-3" id="card">
-      <h3>Aday Bilgileri</h3>
-      <p id="info">Yabancı Dil : 5</p>
-      <p id="info">Cinsiyet</p>
-      <p id="info">Yetenekler</p>
-      <p id="info">Hobileri</p>
-      <p id="info">Kişilik Testi</p>
-    </div>
-  </div>
 </div>
+   
+
    
 
 

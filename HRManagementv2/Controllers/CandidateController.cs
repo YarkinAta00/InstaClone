@@ -32,6 +32,7 @@ namespace HRManagementv2.Controllers
                     on CndInf.CandidateId equals LngInf.CandidateId
                     join UserInf in _db.Users
                     on CndInf.UserId equals UserInf.UserId
+                    
 
                     select new CandidateInf()
                     {
@@ -49,6 +50,8 @@ namespace HRManagementv2.Controllers
                         Hobbies         = CndInf.Hobbies,
                         LanguageName    = LngInf.LanguageName,
                         LanguageLevel   = LngInf.LanguageLevel,
+
+
 
                     }) ;
             return View(candidateList);
@@ -115,6 +118,10 @@ namespace HRManagementv2.Controllers
                     on CndInf.CandidateId equals LngInf.CandidateId
                     join UserInf in _db.Users
                     on CndInf.UserId equals UserInf.UserId
+                    join ApplInf in _db.Applications
+                    on CndInf.CandidateId equals ApplInf.CandidateId
+                    join JobInf in _db.Jobs
+                    on ApplInf.JobId equals JobInf.JobId
 
                     select new CandidateInf()
                     {
@@ -134,6 +141,11 @@ namespace HRManagementv2.Controllers
                         Hobbies         = CndInf.Hobbies,
                         LanguageName    = LngInf.LanguageName,
                         LanguageLevel   = LngInf.LanguageLevel,
+                        AppCreatedDate = ApplInf.CreatedDate,
+                        AppStatus = ApplInf.Status,
+                        FoundFrom = ApplInf.FoundFrom,
+                        JobTitle = JobInf.JobTitle,
+                        Department = JobInf.Department,
 
                     }) ;
 
