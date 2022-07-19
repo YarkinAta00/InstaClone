@@ -20,7 +20,6 @@ namespace HRManagementv2.Controllers
         {
             IEnumerable<Candidate> objCandidateList = _db.Candidates;
             return View(objCandidateList);
-
         }
         */
         public IActionResult Index()
