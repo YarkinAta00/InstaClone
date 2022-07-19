@@ -45,6 +45,8 @@ namespace HRManagementv2.Models
 
         public string JobTitle { get; set; }
         public string Department { get; set; }
+        public string Photo { get; set; }
+        public string Resume { get; set; }
         
 
         public virtual User User { get; set; }
