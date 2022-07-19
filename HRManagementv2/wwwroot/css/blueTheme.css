@@ -107,7 +107,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
-    color: #2fa4e7;
+    color: #ff7f7f;
 }
 
 h1, .h1 {
@@ -122,7 +122,6 @@ h1, .h1 {
 
 h2, .h2 {
     font-size: calc(1.325rem + 0.9vw);
-    text-align:center;
 }
 
 @media (min-width: 1200px) {
@@ -8680,7 +8679,7 @@ fieldset:disabled .btn {
 }
 
 .text-center {
-    text-align: center !important;
+    text-align: left !important;
 }
 
 .text-decoration-none {
@@ -8729,7 +8728,7 @@ fieldset:disabled .btn {
 
 .text-secondary {
     --bs-text-opacity: 1;
-    color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+    color: rgba(255, 0, 0, 0.5) !important;
 }
 
 .text-success {
@@ -8739,7 +8738,10 @@ fieldset:disabled .btn {
 
 .text-info {
     --bs-text-opacity: 1;
-    color: rgba(var(--bs-info-rgb), var(--bs-text-opacity)) !important;
+    /*color: rgba(var(--bs-info-rgb), var(--bs-text-opacity)) !important;*/
+    text-align: left;
+    color: #ff7f7f;
+    
 }
 
 .text-warning {
@@ -8784,11 +8786,10 @@ fieldset:disabled .btn {
 
 .text-black-50 {
     --bs-text-opacity: 1;
-    color: rgba(0, 0, 0, 0.5) !important;
-
+    color: rgba(255, 0, 0, 0.5) !important;
 }.text-heading {
     --bs-text-opacity: 1;
-    color: rgba(255, 0, 0, 0.5) !important;
+    color: #ff7f7f !important;
 }
 
 .text-white-50 {
