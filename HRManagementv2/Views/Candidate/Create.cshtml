@@ -46,9 +46,16 @@
             <span asp-validation-for="UserId" class="text-danger"></span>
         </div> 
         <div class="column">
-            <label asp-for="Gender">Cinsiyet</label>
-            <input asp-for="Gender" class="form-control" />
-            <span asp-validation-for="Gender" class="text-danger"></span>
+
+            <label asp-for="Gender">Cinsiyet*</label>
+        <select asp-for="Gender" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option value="" disabled selected>Lütfen Seçiniz...</option>
+            <option>Kadın</option>
+            <option>Erkek</option>
+            <option>Diğer</option>
+        </select>
+
+
         </div>
         <div class="column">
             <label asp-for="PhoneNumber">Telefon Numarası</label>

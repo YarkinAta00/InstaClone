@@ -23,6 +23,7 @@
   <ItemGroup>
     <Folder Include="Controllers\Services\" />
     <Folder Include="Models\Information\" />
+    <Folder Include="wwwroot\media\resume\" />
   </ItemGroup>
 
 </Project>
