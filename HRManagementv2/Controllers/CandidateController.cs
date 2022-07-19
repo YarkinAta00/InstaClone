@@ -31,6 +31,8 @@ namespace HRManagementv2.Controllers
                     on CndInf.CandidateId equals LngInf.CandidateId
                     join UserInf in _db.Users
                     on CndInf.UserId equals UserInf.UserId
+                    join MedInf in _db.Media
+                    on CndInf.CandidateId equals MedInf.CandidateId 
                     
 
                     select new CandidateInf()
@@ -49,6 +51,7 @@ namespace HRManagementv2.Controllers
                         Hobbies         = CndInf.Hobbies,
                         LanguageName    = LngInf.LanguageName,
                         LanguageLevel   = LngInf.LanguageLevel,
+                        Photo           = MedInf.Photo,
 
 
 
@@ -121,6 +124,8 @@ namespace HRManagementv2.Controllers
                     on CndInf.CandidateId equals ApplInf.CandidateId
                     join JobInf in _db.Jobs
                     on ApplInf.JobId equals JobInf.JobId
+                    join MedInf in _db.Media
+                    on CndInf.CandidateId equals MedInf.CandidateId
 
                     select new CandidateInf()
                     {
@@ -145,6 +150,7 @@ namespace HRManagementv2.Controllers
                         FoundFrom = ApplInf.FoundFrom,
                         JobTitle = JobInf.JobTitle,
                         Department = JobInf.Department,
+                        Photo = MedInf.Photo,
 
                     }) ;
 
