@@ -101,7 +101,7 @@ else{
                         <table class="table table-hover" id="candidateTable" width="100%" cellspacing="0">
                             <thead style="background-color: steelblue;">
                                 <tr style="color: white;">
-                                            <th>Aday Kodu</th>
+                                            <th><input type="checkbox" name="select_all" value="1" id="checkBoxAll"></th>
                                             <th>Fotoğraf</th>
                                             <th>Ayrıntılar</th>
                                             <th>Adı</th>
@@ -125,17 +125,10 @@ else{
             @foreach(var obj in Model)
             {
                 <tr> 
-                    <td>@obj.CandidateId</td>
-                   
+                    <td><input type="checkbox" name="box" class="checkBoxId" value="@obj.CandidateId"></td>
                     <td>
-                        @if(@obj.Photo != null){
-                                    <img src="@Url.Content("~/media/photo/" + @obj.Photo)"  alt="Profil Resmi" width="64" height="64" class="center" style="border-radius:50px">
-                                }
-                                else
-                                {
-                                    <img src="@Url.Content("~/media/person-icon.png")"  alt="Profil Resmi" width="64" height="64" class="center" style="border-radius:50px">
-
-                                }
+                         <img src="@Url.Content("~/media/photo/" + @obj.Photo)"  alt="Profil Resmi" width="64" height="64" class="center" style="border-radius:50px">   
+                    </td>
                     <td>
                         <div class="w-75 btn-group" role="group">
                         <a asp-controller="Candidate" asp-action="Details" asp-route-id="@obj.CandidateId" class="btn btn-primary mx-2"><i class="bi bi-card-text"></i> </a>

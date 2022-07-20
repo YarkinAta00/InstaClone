@@ -52,7 +52,6 @@ namespace HRManagementv2.Controllers
                         LanguageName    = LngInf.LanguageName,
                         LanguageLevel   = LngInf.LanguageLevel,
                         Photo           = MedInf.Photo,
-                        
 
 
 
