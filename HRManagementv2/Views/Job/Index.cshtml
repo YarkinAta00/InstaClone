@@ -4,23 +4,78 @@
 }
 
 
-    <div class="container p-3">
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+
+</head>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let table = new DataTable('#jobTable');
+    });
+
+
+
+    $(function () {
+        jQuery("[name=select_all]").click(function (source) {
+            checkboxes = jQuery("[name=box]");
+            for (var i in checkboxes) {
+                checkboxes[i].checked = source.target.checked;
+            }
+        });
+    })
+    $(document).ready(function () {
+
+        $(".btn-danger").click(function () {
+            $(this).addClass('loading');
+            if (confirm("Silmek istediğine emin misin?")) {
+                var arr_id = [];
+
+                $(":checkbox:checked").each(function (i) {
+                    arr_id[i] = $(this).val();
+                })
+                if (arr_id.length == 0) {
+                    alert("En az bir tane seç!");
+                } else {
+                    for (var i = 0; i < arr_id.length; i++) {
+
+                        $("." + arr_id[i]).css({ "background": "red" });
+                        $("." + arr_id[i]).fadeOut("slow");
+
+                    }
+                }
+
+            }
+            else {
+                return false;
+            }
+        })
+
+    })</script>
+
+
+<div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
             <h2>Mevcut İş İlanları</h2>
-        </div>       
+        </div>
         <div class="col-6 text-end">
             <a asp-controller="Job" asp-action="Create" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i> &nbsp İş İlanı Girişi</a>
+                <i class="bi bi-plus-circle"></i> &nbsp İş İlanı Girişi
+            </a>
         </div>
     </div>
 </div>
 <br />
 
-<table class="table table-hover" style="width:100%">
-    <thead>
-        <tr>
-            <th>ID Num</th>
+<table class="table table-hover" width="100%" id="jobTable">
+    <thead style="background-color:steelblue;">
+        <tr style="color:white;">
+            <th>ID</th>
             <th>İşin İsmi</th>
             <th>Departmanı</th>
             <th>Konumu</th>
@@ -31,11 +86,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var obj in Model)
+        @foreach (var obj in Model)
         {
-            <tr> 
-
-                <td>@obj.JobId</td>
+            <tr>
+                <td> @obj.JobId</td>
                 <td>@obj.JobTitle</td>
                 <td>@obj.Department</td>
                 <td>@obj.Location</td>
@@ -43,17 +97,56 @@
                 <td>@obj.EndDate</td>
                 <td>@obj.Description</td>
 
-
-                @if (@obj.IsActive== true)
+                @if (obj.IsActive == true)
                 {
                     <td>Yayında</td>
                 }
-                else{ <td>Yayında Değil</td> }
+                else
+                {
+                    <td>Yayında Değil</td>
+                }
             </tr>
         }
+
     </tbody>
 </table>
 
 
+    <!---
+    <table class="table table-hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>İşin İsmi</th>
+                <th>Departmanı</th>
+                <th>Konumu</th>
+                <th>Oluşturulma Tarihi</th>
+                <th>İlanın Bitiş Tarihi</th>
+                <th>İşin Tanımı</th>
+                <th>İş İlanının Durumu</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model)
+            {
+                <tr>
+
+                    <td>@obj.JobId</td>
+                    <td>@obj.JobTitle</td>
+                    <td>@obj.Department</td>
+                    <td>@obj.Location</td>
+                    <td>@obj.CreatedDate</td>
+                    <td>@obj.EndDate</td>
+                    <td>@obj.Description</td>
 
 
+                    @if (@obj.IsActive== true)
+                    {
+                        <td>Yayında</td>
+                    }
+                    else{ <td>Yayında Değil</td> }
+                </tr>
+            }
+        </tbody>
+    </table>
+        -->
