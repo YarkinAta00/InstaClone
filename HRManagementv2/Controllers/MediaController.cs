@@ -26,28 +26,38 @@ namespace HRManagementv2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MediaId,CandidateId,mediaFile")] Media mediaModel)
+        public async Task<IActionResult> Create([Bind("MediaId,CandidateId,photoFile,resumeFile")] Media mediaModel)
         {
             if (ModelState.IsValid)
             {
                 string wwwRootPath = _hostEnvironment.WebRootPath;
-                string fileName = Path.GetFileNameWithoutExtension(mediaModel.mediaFile.FileName);
-                string extension = Path.GetExtension(mediaModel.mediaFile.FileName);
+                string fileName = Path.GetFileNameWithoutExtension(mediaModel.photoFile.FileName);
+                string extension = Path.GetExtension(mediaModel.photoFile.FileName);
                 mediaModel.Photo =fileName =  fileName + DateTime.Now.ToString("yymmssfff") + extension;
                 string path = Path.Combine(wwwRootPath + "/media/photo", fileName);
-                using (var fileStream = new FileStream(path,FileMode.Create))
+
+                using (var fileStream = new FileStream(path, FileMode.Create))
                 {
-                    await mediaModel.mediaFile.CopyToAsync(fileStream);
+                    await mediaModel.photoFile.CopyToAsync(fileStream);
+                }
+
+                string resFileName = Path.GetFileNameWithoutExtension(mediaModel.resumeFile.FileName);
+                string resExtension = Path.GetExtension(mediaModel.resumeFile.FileName);
+                mediaModel.Resume = resFileName =  resFileName + DateTime.Now.ToString("yymmssfff") + resExtension;
+                string resPath = Path.Combine(wwwRootPath + "/media/resume", resFileName);
+                
+                using (var resFileStream = new FileStream(resPath,FileMode.Create))
+                {
+                    await mediaModel.resumeFile.CopyToAsync(resFileStream);
                 }
 
                 _db.Add(mediaModel);
                 await _db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("/Candidate/Index");
             }
             else
                 return View();
 
-        
         }
 
 

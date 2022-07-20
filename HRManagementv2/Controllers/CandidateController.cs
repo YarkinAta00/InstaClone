@@ -126,6 +126,8 @@ namespace HRManagementv2.Controllers
                     on ApplInf.JobId equals JobInf.JobId
                     join MedInf in _db.Media
                     on CndInf.CandidateId equals MedInf.CandidateId
+                    join IntInf in _db.InterviewDetails
+                    on ApplInf.ApplicationId equals IntInf.ApplicationId 
 
                     select new CandidateInf()
                     {
@@ -151,6 +153,7 @@ namespace HRManagementv2.Controllers
                         JobTitle        = JobInf.JobTitle,
                         Department      = JobInf.Department,
                         Photo           = MedInf.Photo,
+                        Assessment      = IntInf.Assessment,
 
                     }) ;
 

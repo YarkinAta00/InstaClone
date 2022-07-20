@@ -12,7 +12,11 @@ namespace HRManagementv2.Models
         public string? Photo { get; set; }
         public string? Resume { get; set; }
         [NotMapped]
-        [DisplayName("Upload File")]
-        public IFormFile mediaFile { get; set; }
+        [DisplayName("Upload Photo ->")]
+        public IFormFile photoFile { get; set; }
+        [NotMapped]
+        [DisplayName("Upload Resume ->")]
+
+        public IFormFile resumeFile { get; set; }
     }
 }

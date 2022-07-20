@@ -52,6 +52,8 @@ namespace HRManagementv2.Controllers
                           on CndInf.UserId equals UserInf.UserId
                           join JobInf in _db.Jobs
                           on ApplInf.JobId equals JobInf.JobId
+                          join MedInf in _db.Media
+                          on CndInf.CandidateId equals MedInf.CandidateId
 
                           select new InterviewInf()
                           {
@@ -66,6 +68,7 @@ namespace HRManagementv2.Controllers
                               Participants = IntInf.Participants,
                               FoundFrom = ApplInf.FoundFrom,
                               CreatedDate = ApplInf.CreatedDate,
+                              Photo = MedInf.Photo,
 
 
                           });
