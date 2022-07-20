@@ -123,7 +123,7 @@
             line-height: 20px;
             font-size:19px;
             margin-top: 20px;
-            margin-left: 80px;
+            margin-left: 120px;
             }
             #renkliButon {
                 border-radius: 50%!important;
@@ -153,7 +153,7 @@
                           </p>
                           <p id="info" class="text-secondary mb-1">@Model.JobTitle</p>
                           <p id="info" class="text-muted font-size-sm">@Model.City</p>
-                          <i class="bi bi-calendar-plus-fill" style="font-size:20px; text-align: center"></i>
+                          <i class="bi bi-calendar-plus-fill" style="font-size:20px; margin-left: 40px"></i>
                           <a id="info">@Model.CreatedDate.Day.@Model.CreatedDate.Month.@Model.CreatedDate.Year</a>
                           <div> 
                                     @if (@Model.AppStatus == "On Hold")
@@ -189,8 +189,8 @@
                     </ul>
                   </div>
                   <div class="col text-center" id="buttons">
-                      <button type="button" class="btn btn-primary edit mb-3 w-25">Edit</button>
-                      <button type="button" class="btn btn-outline-primary mb-3 w-40">Geri dön</button>
+                       <a asp-controller="Candidate" asp-action="Edit" class="btn btn-primary edit mb-3 w-25">Edit</a>
+                      <a asp-controller="Candidate" asp-action="Index" class="btn btn-outline-primary mb-3 w-40">Geri Dön</a>
                   </div>
                 </div>
                 <div class="col-md-8">
@@ -229,6 +229,7 @@
                         </div>
                         <div class="col-sm-9 text-secondary">
                           @Model.LanguageLevel
+                           <i class="fa fa-star rating-color"></i>
                         </div>
                       </div>
                       <hr>
@@ -296,7 +297,23 @@
                             </div>
                           </div>
                         </div>
+
                   </div>
+                   <div class="col-sm-12 mb-3">
+                      <div class="card h-100">
+                        <div class="card-body">
+                          <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-primary mr-2">Mülakat Notları</i></h6>
+                          <div class="row">
+                            <div class="col-sm-3">
+                              <h6 class="mb-0 text-dark"></h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
