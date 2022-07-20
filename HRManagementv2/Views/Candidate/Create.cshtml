@@ -84,6 +84,8 @@
         <div class="column">
             <label asp-for="City">İl</label>
             <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+
 
         </div>  
        
@@ -95,7 +97,7 @@
         <div class="column">
             <label asp-for="Province">İlçe</label>
             <input asp-for="Province" class="form-control" />
-        </div> 
+        </div>   
       
     </div>
     <br />

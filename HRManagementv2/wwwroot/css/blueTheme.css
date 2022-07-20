@@ -4541,9 +4541,11 @@ fieldset:disabled .btn {
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
     margin-right: 1rem;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     text-decoration: none;
     white-space: nowrap;
+    font-weight:700;
+    font-family:'Century Gothic';
 }
 
 .navbar-nav {

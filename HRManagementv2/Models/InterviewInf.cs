@@ -20,7 +20,7 @@ namespace HRManagementv2.Models
         public string? AlternateRole { get; set; }
         public string? State { get; set; }
         public string? ApplicationStatus { get; set; }
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
         public string LastName { get; set; }
         public string FoundFrom { get; set; }
         public string JobTitle { get; set; }

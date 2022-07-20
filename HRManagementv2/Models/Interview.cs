@@ -20,5 +20,7 @@ namespace HRManagementv2.Models
         public string? AlternateRole { get; set; }
         public string? State { get; set; }
 
+        public DateTime CreatedDate { get; set; } 
+
     }
 }

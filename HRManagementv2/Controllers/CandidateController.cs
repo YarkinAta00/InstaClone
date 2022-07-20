@@ -51,7 +51,6 @@ namespace HRManagementv2.Controllers
                         Hobbies         = CndInf.Hobbies,
                         LanguageName    = LngInf.LanguageName,
                         LanguageLevel   = LngInf.LanguageLevel,
-                        Photo           = MedInf.Photo,
 
 
 

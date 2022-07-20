@@ -1,4 +1,4 @@
-﻿@model Interview
+﻿@model InterviewInf
 <head>
     
     <meta charset="utf-8">
@@ -80,13 +80,15 @@
         <label asp-for="AlternateRole">Alternatif Rol</label>
         <input asp-for="AlternateRole" class="form-control" />
         <span asp-validation-for="AlternateRole" class="text-danger"></span>
-    </div>
+    </div> 
+    
 </div>
     
 <div class="row">
     <div class="column">
         <label>Mülakat Aşaması</label>
         <select asp-for="State" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option value="" disabled selected>Seçiniz...</option>
             <option selected="selected">Ön Görüşme</option>
             <option>Ana Görüşme</option>
             <option>Sonuç Görüşmesi</option>
@@ -98,8 +100,8 @@
     </div>  
 
     <div class="column">
-            <label asp-for="InterviewDate">Görüşme Tarihi</label>
-        <input placeholder="GG/AA/YYYY" type = "text" id ="datepicker" asp-for="InterviewDate" class="form-control" />
+            <label asp-for="CreatedDate">Görüşme Tarihi</label>
+        <input asp-for="CreatedDate" class="form-control" />
     </div>        
 
 
@@ -109,7 +111,8 @@
     <div class="column">
         <label asp-for="Type">Görüşme Şekli</label>
         <select asp-for="Type" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option selected="selected">Yüzyüze</option>
+            <option value="" disabled selected>Seçiniz...</option>
+            <option>Yüzyüze</option>
             <option>Online</option>
             <option>Tele-Konferans</option>
         </select> </div> <!-- /.form-group -->
