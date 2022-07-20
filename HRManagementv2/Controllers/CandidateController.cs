@@ -145,12 +145,12 @@ namespace HRManagementv2.Controllers
                         Hobbies         = CndInf.Hobbies,
                         LanguageName    = LngInf.LanguageName,
                         LanguageLevel   = LngInf.LanguageLevel,
-                        AppCreatedDate = ApplInf.CreatedDate,
-                        AppStatus = ApplInf.Status,
-                        FoundFrom = ApplInf.FoundFrom,
-                        JobTitle = JobInf.JobTitle,
-                        Department = JobInf.Department,
-                        Photo = MedInf.Photo,
+                        AppCreatedDate  = ApplInf.CreatedDate,
+                        AppStatus       = ApplInf.Status,
+                        FoundFrom       = ApplInf.FoundFrom,
+                        JobTitle        = JobInf.JobTitle,
+                        Department      = JobInf.Department,
+                        Photo           = MedInf.Photo,
 
                     }) ;
 

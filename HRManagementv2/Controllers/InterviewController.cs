@@ -65,6 +65,7 @@ namespace HRManagementv2.Controllers
                               AlternateRole = IntInf.AlternateRole,
                               Participants = IntInf.Participants,
                               FoundFrom = ApplInf.FoundFrom,
+                              CreatedDate = ApplInf.CreatedDate,
 
 
                           });
