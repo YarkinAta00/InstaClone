@@ -37,9 +37,17 @@
 
         </div>
         <div class="mb-3">
-            <label asp-for="FoundFrom">Bizi Nereden Buldunuz ?*</label>
-            <input type="text" asp-for="FoundFrom" class="form-control" />
-            <span asp-validation-for="FoundFrom" class="text-danger"></span>
+            <div class="column">
+         <label asp-for="FoundFrom">Bizi Nereden Buldunuz ?*</label>
+        <select asp-for="FoundFrom" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option value="" disabled selected>Lütfen Seçiniz...</option>
+            <option>Sosyal Meyda</option>
+            <option>LinkedIn</option>
+            <option>Arkadaş Önerisi</option>
+            <option>Diğer</option>
+
+        </select> </div> <!-- /.form-group -->
+        </div>       
 
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Onayla</button>
