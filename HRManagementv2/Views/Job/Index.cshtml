@@ -80,7 +80,7 @@
             <th>Departmanı</th>
             <th>Konumu</th>
             <th>Oluşturulma Tarihi</th>
-            <th>İlanın Bitiş Tarihi</th>
+            <th>Bitiş Tarihi</th>
             <th>İşin Tanımı</th>
             <th>İş İlanının Durumu</th>
         </tr>
@@ -89,7 +89,7 @@
         @foreach (var obj in Model)
         {
             <tr>
-                <td> @obj.JobId</td>
+                <td>@obj.JobId</td>
                 <td>@obj.JobTitle</td>
                 <td>@obj.Department</td>
                 <td>@obj.Location</td>
@@ -110,43 +110,3 @@
 
     </tbody>
 </table>
-
-
-    <!---
-    <table class="table table-hover" style="width:100%">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>İşin İsmi</th>
-                <th>Departmanı</th>
-                <th>Konumu</th>
-                <th>Oluşturulma Tarihi</th>
-                <th>İlanın Bitiş Tarihi</th>
-                <th>İşin Tanımı</th>
-                <th>İş İlanının Durumu</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(var obj in Model)
-            {
-                <tr>
-
-                    <td>@obj.JobId</td>
-                    <td>@obj.JobTitle</td>
-                    <td>@obj.Department</td>
-                    <td>@obj.Location</td>
-                    <td>@obj.CreatedDate</td>
-                    <td>@obj.EndDate</td>
-                    <td>@obj.Description</td>
-
-
-                    @if (@obj.IsActive== true)
-                    {
-                        <td>Yayında</td>
-                    }
-                    else{ <td>Yayında Değil</td> }
-                </tr>
-            }
-        </tbody>
-    </table>
-        -->

@@ -32,6 +32,8 @@ namespace HRManagementv2.Controllers
                           on ApplInf.JobId equals JobInf.JobId
                           join UserInf in _db.Users
                           on CandInf.UserId equals UserInf.UserId
+                          join MedInf in _db.Media
+                          on CandInf.CandidateId  equals MedInf.CandidateId
                           
 
                           select new ApplicationInf()

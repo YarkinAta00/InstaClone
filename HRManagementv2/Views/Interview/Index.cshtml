@@ -78,8 +78,9 @@
 <br />
 
 <table id="interviewTable" class="table table-hover table-striped" style="width:100%">
-    <thead>
-        <tr>
+    <thead style="background-color:steelblue;">
+        <tr style="color:white;">
+            <th>Fotoğraf</th>
             <th>Adı</th>
             <th>Soyadı</th>
             <th>Başvurulan İş</th>
@@ -98,7 +99,9 @@
             if (@obj.State == "Ön Görüşme")
             {
                 <tr> 
-
+                <td>
+                    <img src="@Url.Content("~/media/photo/" + @obj.Photo)"  alt="Profil Resmi" width="64" height="64" class="center" style="border-radius:50px" />
+                </td>
                 <td>@obj.FirstName</td>
                 <td>@obj.LastName</td>
                 <td>@obj.JobTitle</td>
