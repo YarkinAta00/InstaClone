@@ -38,10 +38,11 @@ namespace HRManagementv2.Controllers
 
                           select new ApplicationInf()
                           {
-                              FirstName = UserInf.FirstName,
-                              LastName = UserInf.LastName,
-                              JobTitle = JobInf.JobTitle,
+                              FirstName     = UserInf.FirstName,
+                              LastName      = UserInf.LastName,
+                              JobTitle      = JobInf.JobTitle,
                               ApplicationId = ApplInf.ApplicationId,
+                              Photo         = MedInf.Photo,
                               
 
                           });
