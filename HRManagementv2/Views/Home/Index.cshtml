@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "İK Yönetim";
 }
-@model IEnumerable<User>
+@model IEnumerable<UserInf>
 
     <head>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -14,6 +14,17 @@
     <link rel="icon" type="image/x-icon" href="~/favicon.ico"/>
     <title>Document</title>
     </head>
+@{
+    var countJob = 0;
+    var countCand = 0;
+    var countApp = 0;
+    foreach (var obj in Model)
+    {
+         countJob = @obj.JobId;
+         countCand = @obj.CandidateId;
+         countApp = @obj.ApplicationId;
+    }
+ }
  
     <main class="w-75 m-auto mt-5">
         <div align="center" class="text-heading">
@@ -45,24 +56,20 @@
                     <div class="row">
                         <div class="col-12 w-75 m-auto">
                             <h1 style= "font-family: Century Gothic" class="text-primary fw-bold d-block mb-3 text-center">İstatistik</h1>
-                            <span class="text-primary fw-bold fs-4">Aday: </span>    
+                            <span class="text-primary fw-bold fs-4">İş İlanı: </span>    
                             <span class="text-primary fw fs-4">
-                            @{
-                                var count = 0;
-                                foreach (var obj in Model)
-                                {
-                                    count++;
-                                }
-
-                            }
-                            @count
-                        </span>
+                            @countJob
+                            </span>
                             <br>                        
-                            <span class="text-primary fw-bold fs-4">Başvuru:</span>
-                            <span class="text-primary fw fs-4">32</span>
+                            <span class="text-primary fw-bold fs-4">Aday:</span>
+                            <span class="text-primary fw fs-4">
+                            @countCand
+                            </span>
                             <br>
-                            <span class="text-primary fw-bold fs-4">Aktif İş İlanı: </span>
-                            <span class="text-primary fw fs-4">6</span>
+                            <span class="text-primary fw-bold fs-4">Başvuru: </span>
+                            <span class="text-primary fw fs-4">
+                            @countApp
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -126,10 +133,10 @@
     const myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ['Aktif İş İlanı', 'Aday', 'Aktif Çalışan',],
+            labels: ['İş İlanı', 'Aday', 'Başvuru',],
             datasets: [{
                 label: 'Kullanıcı Verileri',
-                data: [6, 92, 35],
+                data: [@countJob, @countCand, @countApp],
                 backgroundColor: [
                     'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)',

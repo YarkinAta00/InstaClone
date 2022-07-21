@@ -35,76 +35,184 @@
         float:initial;
         width:100%;
     }
+     
+    .center {
+     display: block;
+     margin-left: 500px;
+     margin-right: auto;
+     margin-bottom: 10px;
+     width: 50%;
+     text-align:center;
+            }
+
+     body{
+     color: #1a202c;
+     text-align: left;
+     background-color: #e2e8f0;    
+      }
+      .main-body {
+      padding-bottom: 150px;
+            }
+      .card {
+       box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+          }
+
+       .card {
+       position: relative;
+       display: flex;
+       flex-direction: column;
+       min-width: 0;
+       word-wrap: break-word;
+       background-color: #fff;
+       background-clip: border-box;
+       border: 0 solid rgba(0,0,0,.125);
+       border-radius: .25rem;
+        }
+
+       .card-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1rem;
+            }
+
+       .gutters-sm {
+        margin-right: -8px;
+        margin-left: -8px;
+            }
+
+       .gutters-sm>.col, .gutters-sm>[class*=col-] {
+        padding-right: 8px;
+        padding-left: 8px;
+            }
+       .mb-3, .my-3 {
+        margin-bottom: 1rem!important;
+            }
+
 
 </style>
 
 <form method="post">
-    <div class="row">
-        <div class="column">
-            <label asp-for="UserId">Kullanıcı ID</label>
-            <input asp-for="UserId" class="form-control" />
-            <span asp-validation-for="UserId" class="text-danger"></span>
-        </div> 
-        <div class="column">
+    <div class="container">
+    <div class="main-body">
+      <div class="row gutters-sm">
+            <div class="col-md-12">
+              <div class="card mb-3">
+                <div class="card-body">
+                   <h3 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Kişisel bilgiler</i></h3>
+                    <div class="row">
+                        <div class="column">
+                            <label asp-for="UserId">Kullanıcı ID</label>
+                            <input asp-for="UserId" class="form-control" />
+                            <span asp-validation-for="UserId" class="text-danger"></span>
+                        </div> 
 
-            <label asp-for="Gender">Cinsiyet*</label>
-        <select asp-for="Gender" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" disabled selected>Lütfen Seçiniz...</option>
-            <option>Kadın</option>
-            <option>Erkek</option>
-            <option>Diğer</option>
-        </select>
+                        <div class="column">
+                            <label asp-for="Gender">Cinsiyet*</label>
+                            <select asp-for="Gender" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <option value="" disabled selected>Lütfen Seçiniz...</option>
+                            <option>Kadın</option>
+                            <option>Erkek</option>
+                            <option>Diğer</option>
+                            </select>
+                        </div>
+                    </div>
+                 
+                    <div class="row">
+                        <div class="column">
+                            <label asp-for="PhoneNumber">Telefon Numarası</label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
 
+                        <div class="column">
+                            <label asp-for="AddressLine">Adres</label>
+                            <input asp-for="AddressLine" class="form-control" />
+                            <span asp-validation-for="AddressLine" class="text-danger"></span>
+                        </div>   
+                    </div>
+                  
+                    <div class="row">
+                         <div class="column">
+                            <label asp-for="City">İl</label>
+                            <input asp-for="City" class="form-control" />
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>  
+                        <div class="column">
+                            <label asp-for="Province">İlçe</label>
+                            <input asp-for="Province" class="form-control" />
+                        </div>   
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="card mb-3"> 
+                <div class="card-body">
+                   <h3 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Yetenekler</i></h3>
+                   <div class="row">
+                    <div class="column">
+                        <label asp-for="Skills">Yetenekler</label> 
+                        <input asp-for="Skills" class="form-control"  select name="Skills" /> 
+                        <button type="button" class="btn btn-primary">+</button>
+                        <span asp-validation-for="Skills" id="responce" class="text-danger"></span>    
+                    </div> 
+                    <div class="column">
+                        <label asp-for="PersonalityTest">Kişilik Testi Sonucu</label>
+                        <input asp-for="PersonalityTest" class="form-control" />
+                    </div>  
+                </div>
+               </div>  
+               </div>
+                </div>
 
-        </div>
-        <div class="column">
-            <label asp-for="PhoneNumber">Telefon Numarası</label>
-            <input asp-for="PhoneNumber" class="form-control" />
-            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-        </div>
-        <div class="column">
-            <label asp-for="Skills">Yetenekler</label>
-            <input asp-for="Skills" class="form-control"  select name="Skills"/>
-            <span asp-validation-for="Skills" class="text-danger"></span>
-        </div>
-    </div>
-        
-    <div class="row">
-        <div class="column">
-            <label asp-for="AddressLine">Adres</label>
-            <input asp-for="AddressLine" class="form-control" />
-            <span asp-validation-for="AddressLine" class="text-danger"></span>
-
-        </div>        
-        <div class="column">
-            <label asp-for="Hobbies">Hobileri</label>
-            <input asp-for="Hobbies" class="form-control" />
-
-        </div>        
-        <div class="column">
-            <label asp-for="City">İl</label>
-            <input asp-for="City" class="form-control" />
-            <span asp-validation-for="City" class="text-danger"></span>
-
-
-        </div>  
-       
-        <div class="column">
-            <label asp-for="PersonalityTest">Kişilik Testi Sonucu</label>
-            <input asp-for="PersonalityTest" class="form-control" />
-
-        </div>        
-        <div class="column">
-            <label asp-for="Province">İlçe</label>
-            <input asp-for="Province" class="form-control" />
-        </div>   
       
-    </div>
-    <br />
+            <div class="col-md-6">
+              <div class="card mb-3">
+                <div class="card-body">
+                   <h3 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Dil</i></h3>
+                    <div class="row">
+                        <div class="column">Dil 
+                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                <option value="" disabled selected>..</option>
+                                <option>İngilizce</option>
+                                <option>Almanca</option>
+                                <option>Diğer</option>
+                                </select>
+                            
+                        </div>
+                        <div class="column">Level
+                                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                 <option value="" disabled selected>..</option>
+                                 <option>0</option>
+                                 <option>1</option>
+                                 <option>2</option>
+                                 </select>
+                        </div>  
+                     </div>         
+                </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+              <div class="card mb-3">
+                <div class="card-body">
+                   <h3 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Hobileri</i></h3>
+                    <div class="row">
+                        <div class="column">
+                         <label asp-for="Hobbies">Hobileri</label>
+                        <input asp-for="Hobbies" class="form-control" />
+                    </div> 
+                     </div>         
+                </div>
+                </div>
+              </div>
+         </div> 
     <button type="submit" class="btn btn-info" style="width:150px">Onayla</button>
         <a asp-controller="Candidate" asp-action="Index" class="btn btn-primary" style="width:150px">
             Geri Dön
         </a>
+        </div>
+      </div>
 </form>
 
 @section Scripts{

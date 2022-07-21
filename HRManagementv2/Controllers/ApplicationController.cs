@@ -7,6 +7,7 @@ namespace HRManagementv2.Controllers
     public class ApplicationController : Controller
     {
         private readonly ApplicationDbContext _db;
+
         public ApplicationController(ApplicationDbContext db)
         {
             _db = db;
