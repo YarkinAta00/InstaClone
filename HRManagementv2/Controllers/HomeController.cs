@@ -44,6 +44,12 @@ namespace HRManagementv2.Controllers
 
         }
 
+        public IActionResult Help()
+        {
+            return View();
+
+        }
+
         public IActionResult Privacy()
         {
             return View();
