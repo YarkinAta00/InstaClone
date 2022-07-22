@@ -17,25 +17,8 @@ namespace HRManagementv2.Controllers
         public IActionResult Index()
         {
 
-            IQueryable<UserInf> userList =
-               (from UserInf in _db.Users
-                join CndInf in _db.Candidates
-                on UserInf.UserId equals CndInf.UserId
-                join MedInf in _db.Media
-                on CndInf.CandidateId equals MedInf.CandidateId 
-                
-
-                select new UserInf()
-                {
-                    FirstName   = UserInf.FirstName,
-                    LastName    = UserInf.LastName,
-                    Email       = UserInf.Email,  
-                    CandidateId = CndInf.CandidateId,
-                    UserId      = CndInf.UserId,
-                    Photo       = MedInf.Photo,
-
-                });
-            return View(userList);
+            IEnumerable<User> users = _db.Users;
+            return View(users);
         }
    
         /*
