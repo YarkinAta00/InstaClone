@@ -47,6 +47,7 @@ namespace HRManagementv2.Models
         public string Department { get; set; }
         public string Photo { get; set; }
         public string Resume { get; set; }
+        public string Assessment { get; set; }
         
 
         public virtual User User { get; set; }

@@ -20,9 +20,15 @@
             </div>
             
             <div class="form-group">
-                <label asp-for="mediaFile" class="control-label"></label>
-                <input asp-for="mediaFile" accept="media/photo/*" />
-                <span asp-validation-for="mediaFile" class="text-danger"></span>
+                <label asp-for="photoFile" class="control-label"></label>
+                <input asp-for="photoFile" accept="media/photo/*" />
+                <span asp-validation-for="photoFile" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="resumeFile" class="control-label"></label>
+                <input asp-for="resumeFile" accept="media/resume/*" />
+                <span asp-validation-for="resumeFile" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

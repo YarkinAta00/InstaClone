@@ -24,6 +24,8 @@ namespace HRManagementv2.Models
         public string LastName { get; set; }
         public string FoundFrom { get; set; }
         public string JobTitle { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string Photo { get; set; }
 
     }
 }

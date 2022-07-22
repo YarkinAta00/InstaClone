@@ -46,9 +46,19 @@
                         <div class="col-12 w-75 m-auto">
                             <h1 style= "font-family: Century Gothic" class="text-primary fw-bold d-block mb-3 text-center">İstatistik</h1>
                             <span class="text-primary fw-bold fs-4">Aday: </span>    
-                            <span class="text-primary fw fs-4">92</span>
+                            <span class="text-primary fw fs-4">
+                            @{
+                                var count = 0;
+                                foreach (var obj in Model)
+                                {
+                                    count++;
+                                }
+
+                            }
+                            @count
+                        </span>
                             <br>                        
-                            <span class="text-primary fw-bold fs-4">Aktif Çalışan:</span>
+                            <span class="text-primary fw-bold fs-4">Başvuru:</span>
                             <span class="text-primary fw fs-4">32</span>
                             <br>
                             <span class="text-primary fw-bold fs-4">Aktif İş İlanı: </span>
@@ -110,6 +120,8 @@
     </main>
  
 <script>
+
+
     const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'pie',

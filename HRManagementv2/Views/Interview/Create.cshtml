@@ -92,21 +92,18 @@
             <option selected="selected">Ön Görüşme</option>
             <option>Ana Görüşme</option>
             <option>Sonuç Görüşmesi</option>
-        </select> </div> <!-- /.form-group --> 
-    
+        </select>
+    </div> <!-- /.form-group -->
+
     <div class="column">
         <label asp-for="Participants">Katılımcılar</label>
         <input asp-for="Participants" class="form-control" />
-    </div>  
-
+    </div>
+    <!---
     <div class="column">
             <label asp-for="CreatedDate">Görüşme Tarihi</label>
         <input asp-for="CreatedDate" class="form-control" />
-    </div>        
-
-
-
-    
+    </div>  -->
     <!-- CUSTOM SELECT -->
     <div class="column">
         <label asp-for="Type">Görüşme Şekli</label>
@@ -115,13 +112,14 @@
             <option>Yüzyüze</option>
             <option>Online</option>
             <option>Tele-Konferans</option>
-        </select> </div> <!-- /.form-group -->
-        </div>       
+        </select>
+    </div> <!-- /.form-group -->
+</div>       
 
   
 <br />
-<button type="submit" class="btn btn-primary" style="width:150px">Onayla</button>
-    <a asp-controller="Candidate" asp-action="Index" class="btn btn-secondary" style="width:150px">
+<button type="submit" class="btn btn-info" style="width:150px">Onayla</button>
+    <a asp-controller="Candidate" asp-action="Index" class="btn btn-primary" style="width:150px">
         Geri Dön
     </a>
 </form>
