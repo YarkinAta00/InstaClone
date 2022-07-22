@@ -14,48 +14,39 @@ namespace HRManagementv2.Controllers
             _db = db;
         }
 
-
-        
         public IActionResult Candidates()
-        {            
-            return View(onlyBasic());
+        {
+           IQueryable<CandidateInf> candidate2List =
+
+            (from CandInf in _db.Candidates
+             join UsrInf in _db.Users
+             on CandInf.UserId equals UsrInf.UserId into UsrCnd
+
+             from uc in UsrCnd.DefaultIfEmpty()
+             join m in _db.Media
+             on CandInf.CandidateId equals m.CandidateId into UsrCndMed
+
+             from ucm in UsrCndMed.DefaultIfEmpty()
+             select new CandidateInf()
+             {
+                 CandidateId = CandInf.CandidateId,
+                 FirstName = uc.FirstName,
+                 LastName = uc.LastName,
+                 City = CandInf.City,
+                 Province = CandInf.Province,
+                 Gender = CandInf.Gender,
+                 PhoneNumber = CandInf.PhoneNumber,
+                 Email = uc.Email,
+                 Photo = ucm.Photo,
+
+             });
+
+            return View(candidate2List);
         }
         
         public IActionResult Index()
         {
-
-            IQueryable<CandidateInf> candidateList =
-                (from CndInf in _db.Candidates
-                    join LngInf in _db.Languages
-                    on CndInf.CandidateId equals LngInf.CandidateId
-                    join UserInf in _db.Users
-                    on CndInf.UserId equals UserInf.UserId
-                    join MedInf in _db.Media
-                    on CndInf.CandidateId equals MedInf.CandidateId 
-                    
-
-                    select new CandidateInf()
-                    {
-                        FirstName       = UserInf.FirstName,
-                        LastName        = UserInf.LastName, 
-                        CandidateId     = CndInf.CandidateId,
-                        UserId          = CndInf.UserId,
-                        PhoneNumber     = CndInf.PhoneNumber,
-                        Gender          = CndInf.Gender,
-                        PersonalityTest = CndInf.PersonalityTest,
-                        AddressLine     = CndInf.AddressLine,
-                        City            = CndInf.City,
-                        Province        = CndInf.Province,
-                        Skills          = CndInf.Skills,
-                        Hobbies         = CndInf.Hobbies,
-                        LanguageName    = LngInf.LanguageName,
-                        LanguageLevel   = LngInf.LanguageLevel,
-                        Photo           = MedInf.Photo,
-
-
-
-                    }) ;
-            return View(candidateList);
+            return View(selectedOptions());
         }
         
 
@@ -67,7 +58,7 @@ namespace HRManagementv2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Candidate objCnd, Language objLang)
+        public IActionResult Create(Candidate objCnd)
         {
 
 
@@ -85,13 +76,10 @@ namespace HRManagementv2.Controllers
                 */
 
                 
-                
-                
-//                _db.Languages.Add(objLang);
+                //_db.Languages.Add(objLang);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
             return View(objCnd);
         } 
         
@@ -200,55 +188,55 @@ namespace HRManagementv2.Controllers
 
         private List<CandidateInf> selectedOptions()
         {
-            IQueryable<CandidateInf> candidateList =
-                 (from CndInf in _db.Candidates
-                  join LngInf in _db.Languages
-                 on CndInf.CandidateId equals LngInf.CandidateId
-                  join UserInf in _db.Users
-                 on CndInf.UserId equals UserInf.UserId
-                  join ApplInf in _db.Applications
-                 on CndInf.CandidateId equals ApplInf.CandidateId
-                  join JobInf in _db.Jobs
-                 on ApplInf.JobId equals JobInf.JobId
-                  join MedInf in _db.Media
-                 on CndInf.CandidateId equals MedInf.CandidateId
-                  join IntInf in _db.InterviewDetails
-                 on ApplInf.ApplicationId equals IntInf.ApplicationId
+           IQueryable<CandidateInf> candidateList =
+             (from CandInf in _db.Candidates.DefaultIfEmpty()
+             join UsrInf in _db.Users
+             on CandInf.UserId equals UsrInf.UserId into UsrCnd
 
-                  select new CandidateInf()
-                  {
-                      FirstName = UserInf.FirstName,
-                      LastName = UserInf.LastName,
-                      Email = UserInf.Email,
-                      CreatedDate = UserInf.CreatedDate,
-                      CandidateId = CndInf.CandidateId,
-                      UserId = CndInf.UserId,
-                      PhoneNumber = CndInf.PhoneNumber,
-                      Gender = CndInf.Gender,
-                      PersonalityTest = CndInf.PersonalityTest,
-                      AddressLine = CndInf.AddressLine,
-                      City = CndInf.City,
-                      Province = CndInf.Province,
-                      Skills = CndInf.Skills,
-                      Hobbies = CndInf.Hobbies,
-                      LanguageName = LngInf.LanguageName,
-                      LanguageLevel = LngInf.LanguageLevel,
-                      AppCreatedDate = ApplInf.CreatedDate,
-                      AppStatus = ApplInf.Status,
-                      FoundFrom = ApplInf.FoundFrom,
-                      JobTitle = JobInf.JobTitle,
-                      Department = JobInf.Department,
-                      Photo = MedInf.Photo,
-                      Assessment = IntInf.Assessment,
-
-                  });
+             from uc in UsrCnd.DefaultIfEmpty()
+             join m in _db.Media
+             on CandInf.CandidateId equals m.CandidateId into UsrCndMed
+              
+             from ucm in UsrCndMed.DefaultIfEmpty()
+             join l in _db.Languages
+             on CandInf.CandidateId equals l.CandidateId into UsrCndMedLang
+             
+             from ucml in UsrCndMedLang.DefaultIfEmpty()
+             join a in _db.Applications
+             on CandInf.CandidateId equals a.CandidateId into UsrCndMedLangAp
+             
+             from ucmla in UsrCndMedLangAp.DefaultIfEmpty()
+             select new CandidateInf()
+             {
+                 CandidateId = CandInf.CandidateId,
+                 PhoneNumber = CandInf.PhoneNumber,
+                 Gender = CandInf.Gender,
+                 PersonalityTest = CandInf.PersonalityTest,
+                 AddressLine = CandInf.AddressLine,
+                 City = CandInf.City,
+                 Province = CandInf.Province,
+                 Skills = CandInf.Skills,
+                 Hobbies = CandInf.Hobbies,
+                 FirstName = uc.FirstName,
+                 LastName = uc.LastName,
+                 Email = uc.Email,
+                 CreatedDate = uc.CreatedDate,
+                 Photo = ucm.Photo,
+                 Resume = ucm.Resume,
+                 LanguageName = ucml.LanguageName,
+                 LanguageLevel = ucml.LanguageLevel,
+                 AppCreatedDate = ucmla.CreatedDate,
+                 AppStatus = ucmla.Status,
+                 FoundFrom = ucmla.FoundFrom,
+             });
+            
             return candidateList.ToList();
 
         } 
         
         private List<CandidateInf> onlyBasic()
         {
-            IQueryable<CandidateInf> candidateList =
+            IQueryable<CandidateInf> candidateBasicList =
                  (from CndInf in _db.Candidates
                   join UsrInf in _db.Users
                  on CndInf.UserId equals UsrInf.UserId
@@ -265,7 +253,7 @@ namespace HRManagementv2.Controllers
                       CandidateId = CndInf.CandidateId,
                       Email     = UsrInf.Email,
                   });
-            return candidateList.ToList();
+            return candidateBasicList.ToList();
 
         }
 

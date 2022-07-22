@@ -1,4 +1,4 @@
-﻿@model CandidateInf
+﻿@model Candidate
 @{
         ViewData["Title"] = "Aday Bilgi Ekle";
     }
@@ -170,26 +170,7 @@
               <div class="card mb-3">
                 <div class="card-body">
                    <h3 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Dil</i></h3>
-                    <div class="row">
-                        <div class="column">Dil 
-                                <select asp-for="LanguageName" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                <option value="" disabled selected>..</option>
-                                <option>İngilizce</option>
-                                <option>Almanca</option>
-                                <option>Diğer</option>
-                                </select>
-                            
-                        </div>
-                        <div class="column">Level
-                                 <select asp-for="LanguageLevel" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                 <option value="" disabled selected>..</option>
-                                 <option>0</option>
-                                 <option>1</option>
-                                 <option>2</option>
-                                 </select>
-                        </div>  
-                     </div>         
-                </div>
+                                   </div>
                 </div>
               </div>
 
@@ -207,8 +188,9 @@
                 </div>
               </div>
          </div> 
+
         <button type="submit" class="btn btn-info" style="width:150px">Onayla</button>
-        <a asp-controller="Candidate" asp-action="Create2" asp-route-id="CandidateId"  class="btn btn-primary" style="width:150px">
+        <a asp-controller="Candidate" asp-action="Index"  class="btn btn-primary" style="width:150px">
             Geri Dön
         </a>
         </div>

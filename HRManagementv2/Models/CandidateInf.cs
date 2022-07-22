@@ -15,13 +15,13 @@ namespace HRManagementv2.Models
         [RegularExpression(@"^[1-9][0-9]*$", ErrorMessage = "Telefon numarasını başında 0 olmadan giriniz.")]
         public string? PhoneNumber { get; set; }
         [StringLength(50)]
-        public string PersonalityTest { get; set; }
+        public string? PersonalityTest { get; set; }
         [StringLength(50)]
         [Required(ErrorMessage = "Adres bilgisi giriniz.")]
-        public string AddressLine { get; set; }
+        public string? AddressLine { get; set; }
         [StringLength(50)]
         [Required(ErrorMessage = "İl bilgisi giriniz.")]
-        public string City { get; set; }
+        public string? City { get; set; }
         [StringLength(50)]
         [Required(ErrorMessage = "İlçe bilgisi giriniz.")]
         public string? Province { get; set; }
@@ -31,29 +31,29 @@ namespace HRManagementv2.Models
         public string? Skills { get; set; }
         [StringLength(50)]
         public string? Hobbies { get; set; }
-        public string LangCandId { get; set; }
+        public string? LangCandId { get; set; }
         public string LanguageName { get; set; }
-        public byte LanguageLevel { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
+        public byte? LanguageLevel { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? Email { get; set; }
         public DateTime CreatedDate { get; set; }
 
-        public DateTime AppCreatedDate {get; set;}
-        public string  AppStatus { get; set; }
+        public DateTime? AppCreatedDate {get; set;}
+        public string?  AppStatus { get; set; }
 
-        public string FoundFrom { get; set; }
+        public string? FoundFrom { get; set; }
 
-        public string JobTitle { get; set; }
-        public string Department { get; set; }
-        public string Photo { get; set; }
-        public string Resume { get; set; }
-        public string Assessment { get; set; }
+        public string? JobTitle { get; set; }
+        public string? Department { get; set; }
+        public string? Photo { get; set; }
+        public string? Resume { get; set; }
+        public string? Assessment { get; set; }
         
 
-        public virtual User User { get; set; }
+        public virtual User? User { get; set; }
 
-        public ICollection<Language> Languages { get; set; }
+        public ICollection<Language>? Languages { get; set; }
 
 
 

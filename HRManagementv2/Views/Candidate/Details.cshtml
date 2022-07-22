@@ -12,6 +12,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="~/css/blueTheme.css" rel="stylesheet">
+        
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         
@@ -234,8 +235,11 @@
                           <h6 class="mb-0 text-dark">Dil Seviyesi</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          @Model.LanguageLevel
-                           <i class="fa fa-star rating-color"></i>
+                                    @if (@Model.LanguageLevel != 0)
+                                    {
+                                        @Model.LanguageLevel
+                                    }
+                                    <i class="fa fa-star rating-color"></i>
                         </div>
                       </div>
                       <hr>
@@ -281,7 +285,7 @@
                               <h6 class="mb-0 text-dark">Başvuru Tarihi</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              @Model.AppCreatedDate
+                                @Model.AppCreatedDate
                             </div>
                           </div>
                           <hr>
@@ -299,7 +303,10 @@
                               <h6 class="mb-0 text-dark">Bizi nereden buldunuz?</h6>
                             </div>
                             <div class="col-sm-6 text-secondary">
-                              @Model.FoundFrom
+                              @if (@Model.FoundFrom != null)
+                                    {
+                                       @Model.FoundFrom
+                                    }
                             </div>
                           </div>
                         </div>

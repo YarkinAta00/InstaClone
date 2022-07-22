@@ -110,15 +110,19 @@ else{
                                     </thead>
         <tbody>
 
-            
-
             @foreach(var obj in Model)
             {
                 <tr> 
                     <td><input type="checkbox" name="box" class="checkBoxId" value="@obj.CandidateId"></td>
                     <td>
-                         <img src="@Url.Content("~/media/photo/" + @obj.Photo)"  alt="Profil Resmi" width="64" height="64" class="center" style="border-radius:50px">   
-                    </td>
+                                @if (@obj.Photo != null)
+                                {
+                                    <img src="@Url.Content("~/media/photo/" + @obj.Photo)"  alt="Profil Resmi" width="64" height="64" class="center" style="border-radius:50px">
+                                }
+                                else{ 
+                                <img src="@Url.Content("~/media/person-icon.png")"  alt="Profil Resmi" width="64" height="64" class="center" style="border-radius:50px">
+                                }
+                            </td>
                     <td>
                         <div class="w-75 btn-group" role="group">
                         <a asp-controller="Candidate" asp-action="Details" asp-route-id="@obj.CandidateId" class="btn btn-primary mx-2"><i class="bi bi-card-text"></i> </a>
