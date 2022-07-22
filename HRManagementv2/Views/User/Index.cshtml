@@ -44,7 +44,6 @@
     <thead style="background-color:steelblue;">
         <tr style="color:white;">
             <th>ID</th>
-            <th>Fotoğraflar</th>
             <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Adı</a>
             </th>
@@ -61,7 +60,6 @@
             <tr> 
 
                 <td>@obj.UserId</td>
-                <td><img "@Url.Content("~/media/photo/"+ obj.Photo)" alt="Profil Resmi" style="border-radius:50px;" class="center" width="64" height="64"/> </td>
                 <td>@obj.FirstName</td>
                 <td>@obj.LastName</td>
                 <td>@obj.Email</td>
