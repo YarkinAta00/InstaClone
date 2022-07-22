@@ -105,15 +105,16 @@
                     @foreach(var obj in Model)
                     {
                     <tr>
-                        <td>@obj.CandidateId</td>
+
                         <td>@obj.FirstName</td>
                         <td>@obj.LastName</td>
                         <td>@obj.City</td>
                         <td>@obj.Province</td>
-                        <td>@obj.Gender</td>
                         <td>@obj.PhoneNumber</td>
+                        <td>@obj.Gender</td>
+                        <td>@obj.CandidateId</td>
                         <td>@obj.Email</td>
-                        
+
                     </tr>
                     }
                 </tbody>
