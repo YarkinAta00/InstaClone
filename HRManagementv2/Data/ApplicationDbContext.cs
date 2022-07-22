@@ -10,7 +10,7 @@ namespace HRManagementv2.Data
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source = 213.159.7.93; Initial Catalog = HRManagement.DEV; User ID = Monovi.Intern; Password = Qweqaz2022");
+            optionsBuilder.UseSqlServer(@"Data Source = 213.159.7.93; Initial Catalog = HRManagement.DEV; User ID = Monovi.Intern; Password = Qweewq2022");
         }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)

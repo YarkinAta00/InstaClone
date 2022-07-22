@@ -8,12 +8,15 @@ namespace HRManagementv2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+
+
+        public HomeController(ApplicationDbContext db)
         {
-            _logger = logger;
+            _db = db;
         }
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -35,7 +38,8 @@ namespace HRManagementv2.Controllers
         
         public IActionResult Index()
         {
-            return View();
+                
+            return View(selectedOptions());
         }
 
         public IActionResult Auth()
@@ -53,6 +57,23 @@ namespace HRManagementv2.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public List<UserInf> selectedOptions()
+        {
+            IQueryable<UserInf> candList =
+                         (from j in _db.Jobs
+
+                            select new UserInf()
+                          {
+                              JobId = (from a in _db.Jobs select a).Count(),                  
+                              CandidateId = (from b in _db.Candidates select b).Count(),                  
+                              ApplicationId = (from c in _db.Applications select c).Count(),                  
+                          });
+
+
+            return candList.ToList();
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
