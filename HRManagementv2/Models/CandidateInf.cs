@@ -31,6 +31,7 @@ namespace HRManagementv2.Models
         public string? Skills { get; set; }
         [StringLength(50)]
         public string? Hobbies { get; set; }
+        public string LangCandId { get; set; }
         public string LanguageName { get; set; }
         public byte LanguageLevel { get; set; }
         public string FirstName { get; set; }

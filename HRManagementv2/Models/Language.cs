@@ -7,7 +7,7 @@ namespace HRManagementv2.Models
         [Key]
         public int LanguageId { get; set; }
         [Required]
-        public int CandidateId { get; set; }
+        public int CandidateId { get; set; } 
         [StringLength(20)]
         public string LanguageName { get; set; }
         public byte LanguageLevel { get; set; }
