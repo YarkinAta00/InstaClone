@@ -14,30 +14,28 @@ namespace HRManagementv2.Controllers
             _db = db;
         }
 
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public IActionResult Index()
         {
-            
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["CurrentFilter"] = searchString;
-            var users = from s in _db.Users
-                           select s;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                users = users.Where(s => s.FirstName.Contains(searchString)
-                                    || s.LastName.Contains(searchString)); 
-            }
 
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    users = users.OrderByDescending(s => s.FirstName);
-                    break;
-                default:
-                    users = users.OrderBy(s => s.FirstName);
-                    break;
-            }
-            
-            return View(await users.AsNoTracking().ToListAsync());
+            IQueryable<UserInf> userList =
+               (from UserInf in _db.Users
+                join CndInf in _db.Candidates
+                on UserInf.UserId equals CndInf.UserId
+                join MedInf in _db.Media
+                on CndInf.CandidateId equals MedInf.CandidateId 
+                
+
+                select new UserInf()
+                {
+                    FirstName   = UserInf.FirstName,
+                    LastName    = UserInf.LastName,
+                    Email       = UserInf.Email,  
+                    CandidateId = CndInf.CandidateId,
+                    UserId      = CndInf.UserId,
+                    Photo       = MedInf.Photo,
+
+                });
+            return View(userList);
         }
    
         /*
