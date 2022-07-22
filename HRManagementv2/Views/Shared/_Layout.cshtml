@@ -25,10 +25,14 @@
       
       
         
-        <li class="nav-item">
-        <a class="nav-link"  asp-controller="User" asp-action="Index">Kullanıcılar</a>
-
-        </li><li class="nav-item">
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role=" button" aria- -haspopup="true" aria-expanded="false"> Kullanıcılar </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" asp-controller="User" asp-action="Index">Kullanıcılar</a>
+                  <a class="dropwdown-item" asp-controller="Candidate" asp-action="Candidates">Adaylar</a>
+              </div>
+          </li>
+          <li class="nav-item">
         <a class="nav-link"  asp-controller="Application" asp-action="Index">Başvurular</a>
 
         </li>

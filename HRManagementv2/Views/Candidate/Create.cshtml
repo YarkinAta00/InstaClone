@@ -1,4 +1,4 @@
-﻿@model Candidate
+﻿@model CandidateInf
 @{
         ViewData["Title"] = "Aday Bilgi Ekle";
     }
@@ -172,7 +172,7 @@
                    <h3 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Dil</i></h3>
                     <div class="row">
                         <div class="column">Dil 
-                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                <select asp-for="LanguageName" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
                                 <option value="" disabled selected>..</option>
                                 <option>İngilizce</option>
                                 <option>Almanca</option>
@@ -181,7 +181,7 @@
                             
                         </div>
                         <div class="column">Level
-                                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                 <select asp-for="LanguageLevel" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
                                  <option value="" disabled selected>..</option>
                                  <option>0</option>
                                  <option>1</option>
