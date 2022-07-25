@@ -74,7 +74,20 @@ namespace HRManagementv2.Controllers
             if (objCnd.PhoneNumber != null )
             {
                 _db.Candidates.Add(objCnd);
-                _db.Languages.Add(objLang);
+                /*
+                foreach (var obj in _db.Candidates)
+                {
+                    if (obj.CandidateId == )
+                    {
+                        candidateObj = obj;
+                    }
+                }
+                */
+
+                
+                
+                
+//                _db.Languages.Add(objLang);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -104,6 +117,25 @@ namespace HRManagementv2.Controllers
         {
             if (obj.CandidateId != null) {
                 _db.Candidates.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        
+            return View(obj);
+        }
+
+        public IActionResult Create2()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create2(Language obj, int id)
+        {
+            obj.CandidateId = id;
+            if (obj.CandidateId != null) {
+                _db.Languages.Add(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }

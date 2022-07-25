@@ -125,7 +125,7 @@
                         </div>
 
                         <div class="column">
-                            <label asp-for="AddressLine">Adres</label>
+                            <label asp-for="AddressLine" >Adres</label>
                             <input asp-for="AddressLine" class="form-control" />
                             <span asp-validation-for="AddressLine" class="text-danger"></span>
                         </div>   
@@ -207,8 +207,8 @@
                 </div>
               </div>
          </div> 
-    <button type="submit" class="btn btn-info" style="width:150px">Onayla</button>
-        <a asp-controller="Candidate" asp-action="Index" class="btn btn-primary" style="width:150px">
+        <button type="submit" class="btn btn-info" style="width:150px">Onayla</button>
+        <a asp-controller="Candidate" asp-action="Create2" asp-route-id="CandidateId"  class="btn btn-primary" style="width:150px">
             Geri Dön
         </a>
         </div>
