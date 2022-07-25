@@ -29,32 +29,38 @@
 <div class="container-fluid p-3">
     <div class="row pt-4">
         <div class="col-3 text-start">
-            <h2 class="m-0 font-weight-bold text-heading">Bilgi Düzenle</h2>
+            <h2 class="m-0 font-weight-bold text-heading">Dil Bilgisi Düzenle</h2>
         </div>
     </div>
 </div>
-<form method="post" >
-    <div class="row">
-            <div class="column">
-            <label asp-for="LanguageName">Dil Adı</label>
-            <input asp-for="LanguageName" class="form-control" />
-            <span asp-validation-for="LanguageName" class="text-danger"></span>
-            </div> 
-       
-        <div class="column">
-            <label asp-for="LanguageLevel">Seviye</label>
-            <input asp-for="LanguageLevel" class="form-control" />
-            <span asp-validation-for="LanguageLevel" class="text-danger"></span>
+<div class="col-md-12">
+         <div class="card mb-3"> 
+             <div class="card-body"> 
+                <form method="post" asp-action="Create2" id="add_form">
+                    <div id="show_item">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="LanguageName">Dil Adı</label>
+                                <input asp-for="LanguageName" class="form-control" />
+                                <span asp-validation-for="LanguageName" class="text-danger"></span>
+                            </div> 
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="LanguageLevel">Seviye</label>
+                                <input asp-for="LanguageLevel" class="form-control" />
+                                <span asp-validation-for="LanguageLevel" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div> 
+                    <button type="submit" class="btn btn-primary" style="width:150px">Onayla</button>
+                    <a asp-controller="Candidate" asp-action="Create" class="btn btn-dark" style="width:150px">
+                        Geri Dön
+                    </a>
+               </form>
+                </div>
+             </div>
         </div>
      
-    
-    
-        <button type="submit" class="btn btn-primary" style="width:150px">Onayla</button>
-        <a asp-controller="Candidate" asp-action="Index" class="btn btn-dark" style="width:150px">
-            Geri Dön
-        </a>
-        </div>
-</form>
+
 
 @section Scripts{
     @{
